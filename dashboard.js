@@ -1,76 +1,157 @@
-// ==============================
-// NOVAHUB DASHBOARD
-// ==============================
+// =================================
+// NOVAHUB DASHBOARD SYSTEM
+// =================================
 
+
+
+document.addEventListener("DOMContentLoaded", function(){
+
+
+
+// USERNAME
 
 let username =
+
 localStorage.getItem("loggedInUser")
+
 ||
+
 "User";
 
 
-document.getElementById("username").textContent =
-username;
+
+let usernameBox = 
+document.getElementById("username");
+
+
+if(usernameBox){
+
+usernameBox.textContent = username;
+
+}
 
 
 
 
-document.getElementById("currentDate").textContent =
+
+
+
+// DATE
+
+let dateBox =
+document.getElementById("currentDate");
+
+
+if(dateBox){
+
+dateBox.textContent =
 new Date().toDateString();
 
+}
 
 
 
+
+
+
+
+// STATS
 
 
 let workouts =
+
 Number(localStorage.getItem("totalWorkouts"))
-||0;
+
+||
+
+0;
 
 
-let points =
+
+let xp =
+
 Number(localStorage.getItem("points"))
-||0;
+
+||
+
+0;
+
 
 
 let streak =
+
 Number(localStorage.getItem("streak"))
-||0;
+
+||
+
+0;
 
 
 
 
+
+if(document.getElementById("workoutCount")){
 
 document.getElementById("workoutCount").textContent =
 workouts;
 
+}
+
+
+
+if(document.getElementById("points")){
 
 document.getElementById("points").textContent =
-points;
+xp;
 
+}
+
+
+
+if(document.getElementById("streakCount")){
 
 document.getElementById("streakCount").textContent =
 streak;
 
+}
 
 
 
 
 
 
-// LEVEL
+
+
+// LEVEL BAR
 
 
 let level =
-Math.floor(points / 100)+1;
 
-
-let xp =
-points % 100;
+Math.floor(xp / 100)+1;
 
 
 
-document.getElementById("levelText").textContent =
+let levelXP =
+
+xp % 100;
+
+
+
+
+let levelText =
+document.getElementById("levelText");
+
+
+
+let xpBar =
+document.getElementById("xpBar");
+
+
+
+
+if(levelText){
+
+levelText.textContent =
 
 "Level "
 +
@@ -78,41 +159,50 @@ level
 +
 " • "
 +
-xp
+levelXP
 +
 "/100 XP";
 
-
-
-document.getElementById("xpBar").style.width =
-xp+"%";
+}
 
 
 
+if(xpBar){
+
+xpBar.style.width =
+levelXP + "%";
+
+}
 
 
 
 
 
-// CHART
+
+
+
+// ===============================
+// WEEKLY ACTIVITY CHART
+// ===============================
+
 
 
 let canvas =
+
 document.getElementById("weeklyChart");
 
 
-let loading =
-document.getElementById("chartLoading");
+
+if(canvas && typeof Chart !== "undefined"){
 
 
 
-if(canvas){
-
-
-let chartData =
+let weekly =
 
 JSON.parse(
+
 localStorage.getItem("weeklyWorkouts")
+
 )
 
 ||
@@ -121,18 +211,15 @@ localStorage.getItem("weeklyWorkouts")
 
 
 
-if(loading){
-
-loading.style.display="none";
-
-}
 
 
 
 new Chart(canvas,{
 
 
+
 type:"bar",
+
 
 
 data:{
@@ -152,12 +239,16 @@ labels:[
 
 
 
+
 datasets:[{
 
 
 label:"Workouts",
 
-data:chartData,
+
+
+data:weekly,
+
 
 
 backgroundColor:"#00ff88"
@@ -170,22 +261,23 @@ backgroundColor:"#00ff88"
 },
 
 
+
+
+
 options:{
+
 
 
 responsive:true,
 
 
-animation:{
 
+maintainAspectRatio:false,
 
-duration:1000
-
-
-},
 
 
 plugins:{
+
 
 
 legend:{
@@ -195,6 +287,26 @@ display:false
 
 
 }
+
+
+
+},
+
+
+
+
+scales:{
+
+
+
+y:{
+
+
+beginAtZero:true
+
+
+}
+
 
 
 }
@@ -213,8 +325,16 @@ display:false
 
 
 
+});
 
 
+
+
+
+
+
+
+// LOGOUT
 
 
 function logout(){
