@@ -119,3 +119,41 @@ body {
     border-radius:15px;
 
 }
+.workout-page {
+
+    padding:40px;
+    text-align:center;
+
+}
+
+
+.exercise-section {
+
+    margin-top:40px;
+
+}
+
+
+.exercise-card {
+
+    background:#222;
+    padding:25px;
+    margin:20px auto;
+    border-radius:15px;
+    max-width:500px;
+
+}
+
+
+.exercise-card h3 {
+
+    color:#00ff88;
+
+}
+
+
+.exercise-card p {
+
+    color:white;
+
+}
