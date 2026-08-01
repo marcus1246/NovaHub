@@ -1,10 +1,11 @@
-let user = localStorage.getItem("loggedInUser");
+let user =
+localStorage.getItem("loggedInUser");
 
 
 
 if(!user){
 
-    window.location.href="login.html";
+window.location.href="login.html";
 
 }
 
@@ -12,52 +13,35 @@ if(!user){
 
 
 
-document.getElementById("username").innerHTML = user;
+document.getElementById("username").innerHTML=user;
 
 
 
 
 
-
-
-// WORKOUTS
 
 let workouts =
-localStorage.getItem("totalWorkouts") || 0;
+Number(localStorage.getItem("totalWorkouts")) || 0;
 
-
-document.getElementById("workoutCount").innerHTML =
-workouts;
-
-
-
-
-
-
-
-// STREAK
 
 let streak =
-localStorage.getItem("streak") || 0;
+Number(localStorage.getItem("streak")) || 0;
 
-
-document.getElementById("streakCount").innerHTML =
-streak;
-
-
-
-
-
-
-
-// POINTS
 
 let points =
-localStorage.getItem("points") || 0;
+Number(localStorage.getItem("points")) || 0;
 
 
-document.getElementById("points").innerHTML =
-points;
+
+
+
+document.getElementById("workoutCount").innerHTML=workouts;
+
+
+document.getElementById("streakCount").innerHTML=streak;
+
+
+document.getElementById("points").innerHTML=points;
 
 
 
@@ -67,27 +51,23 @@ points;
 
 // DAILY GOAL
 
+
 let today =
 new Date().toDateString();
 
 
 
-let completed =
-localStorage.getItem("dailyGoalCompleted");
+if(localStorage.getItem("dailyGoalCompleted") === today){
 
 
-
-if(completed === today){
-
-
-document.getElementById("dailyGoal").innerHTML =
+document.getElementById("dailyGoal").innerHTML=
 "✅ Completed";
 
 
 }else{
 
 
-document.getElementById("dailyGoal").innerHTML =
+document.getElementById("dailyGoal").innerHTML=
 "⏳ Not Completed";
 
 
@@ -99,13 +79,58 @@ document.getElementById("dailyGoal").innerHTML =
 
 
 
+
+// XP BAR
+
+
+let xp =
+points % 100;
+
+
+
+document.getElementById("xpBar").style.width =
+xp + "%";
+
+
+
+document.getElementById("levelText").innerHTML =
+"Level " + (Math.floor(points/100)+1);
+
+
+
+
+
+
+
+
+// ACTIVITY
+
+
+if(workouts > 0){
+
+
+document.getElementById("activity").innerHTML =
+"🔥 Completed " + workouts + " workouts";
+
+
+}
+
+
+
+
+
+
+
+
+
 // ACHIEVEMENTS
 
-let badges = [];
+
+let badges=[];
 
 
 
-if(workouts >= 1){
+if(workouts>=1){
 
 badges.push("🥉 First Workout");
 
@@ -113,7 +138,7 @@ badges.push("🥉 First Workout");
 
 
 
-if(workouts >= 10){
+if(workouts>=10){
 
 badges.push("🥈 10 Workouts");
 
@@ -121,15 +146,15 @@ badges.push("🥈 10 Workouts");
 
 
 
-if(points >= 500){
+if(points>=500){
 
-badges.push("⭐ 500 XP Master");
+badges.push("⭐ XP Master");
 
 }
 
 
 
-if(streak >= 7){
+if(streak>=7){
 
 badges.push("🔥 7 Day Streak");
 
@@ -138,7 +163,7 @@ badges.push("🔥 7 Day Streak");
 
 
 
-if(badges.length > 0){
+if(badges.length){
 
 document.getElementById("badges").innerHTML =
 badges.join("<br>");
@@ -150,8 +175,6 @@ badges.join("<br>");
 
 
 
-
-// LOGOUT
 
 
 function logout(){
