@@ -205,3 +205,37 @@ body {
     margin:20px;
 
 }
+.exercise-grid {
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+
+}
+
+
+.exercise-card {
+
+    background:#222;
+    padding:25px;
+    border-radius:15px;
+
+}
+
+
+@media(max-width:900px){
+
+.exercise-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+
+@media(max-width:600px){
+
+.exercise-grid{
+grid-template-columns:1fr;
+}
+
+}
