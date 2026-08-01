@@ -20,9 +20,7 @@
 <aside class="sidebar">
 
 
-<h2>
-NovaHub 💪
-</h2>
+<h2>NovaHub 💪</h2>
 
 
 <a href="dashboard.html">
@@ -45,11 +43,9 @@ NovaHub 💪
 </a>
 
 
-
 <button onclick="logout()">
 Logout
 </button>
-
 
 
 </aside>
@@ -60,10 +56,7 @@ Logout
 
 
 
-
-
 <main class="content">
-
 
 
 <h1>
@@ -71,14 +64,16 @@ Welcome back, <span id="username"></span> 🔥
 </h1>
 
 
-<p>
-Train hard. Earn points. Level up.
+<p id="quote">
+Push yourself. Become stronger every day.
 </p>
 
 
 
 
 
+
+<!-- QUICK STATS -->
 
 
 <div class="cards">
@@ -87,21 +82,16 @@ Train hard. Earn points. Level up.
 
 <div class="card">
 
-<h2>
-🏆
-</h2>
+<h2>🏆</h2>
 
 <h3>
 Workouts
 </h3>
 
 <p>
-<span id="workoutCount">
-0
-</span>
+<span id="workoutCount">0</span>
 Completed
 </p>
-
 
 </div>
 
@@ -109,29 +99,20 @@ Completed
 
 
 
-
-
 <div class="card">
 
-<h2>
-🔥
-</h2>
+<h2>🔥</h2>
 
 <h3>
 Streak
 </h3>
 
 <p>
-<span id="streakCount">
-0
-</span>
+<span id="streakCount">0</span>
 Days
 </p>
 
-
 </div>
-
-
 
 
 
@@ -139,21 +120,16 @@ Days
 
 <div class="card">
 
-<h2>
-⭐
-</h2>
+<h2>⭐</h2>
 
 <h3>
-Points
+XP Points
 </h3>
 
 <p>
-<span id="points">
-0
-</span>
+<span id="points">0</span>
 XP
 </p>
-
 
 </div>
 
@@ -161,66 +137,76 @@ XP
 
 
 
-
-
 <div class="card">
 
-<h2>
-🎯
-</h2>
+<h2>🎯</h2>
 
 <h3>
 Daily Goal
 </h3>
 
 <p id="dailyGoal">
-⏳ Not Completed
+Not Completed
 </p>
 
+</div>
+
 
 </div>
 
 
 
 
-</div>
 
 
 
 
 
-
-
+<!-- XP BAR -->
 
 
 <div class="card" style="margin-top:40px;">
 
 
 <h2>
-Today's Challenge 💪
+⭐ Level Progress
 </h2>
 
 
-<br>
-
-
 <p>
-
-🔥 Push Ups - 20<br>
-
-🦵 Squats - 30<br>
-
-⚡ Burpees - 10
-
+XP to next level
 </p>
 
 
-<br>
+
+<div style="
+background:#333;
+height:20px;
+border-radius:20px;
+overflow:hidden;
+">
 
 
-<a class="btn" href="workouts.html">
-Start Workout
-</a>
+<div id="xpBar"
+
+style="
+height:100%;
+width:0%;
+background:#00ff88;
+">
+
+</div>
+
+
+</div>
+
+
+
+<p>
+<span id="levelText">
+Level 1
+</span>
+</p>
 
 
 
@@ -232,6 +218,93 @@ Start Workout
 
 
 
+
+
+<!-- WEEKLY CHART -->
+
+
+<div class="card" style="margin-top:40px;">
+
+
+<h2>
+📊 Weekly Activity
+</h2>
+
+
+<p>
+Mon ████
+</p>
+
+
+<p>
+Tue ██
+</p>
+
+
+<p>
+Wed █████
+</p>
+
+
+<p>
+Thu ███
+</p>
+
+
+<p>
+Fri ██████
+</p>
+
+
+<p>
+Sat ██
+</p>
+
+
+<p>
+Sun ████
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- RECENT ACTIVITY -->
+
+
+<div class="card" style="margin-top:40px;">
+
+
+<h2>
+⚡ Recent Activity
+</h2>
+
+
+<p id="activity">
+No workouts yet.
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ACHIEVEMENTS -->
 
 
 <div class="card" style="margin-top:40px;">
@@ -242,17 +315,12 @@ Start Workout
 </h2>
 
 
-<br>
-
-
 <p id="badges">
-No badges unlocked yet.
+No badges unlocked.
 </p>
 
 
-
 </div>
-
 
 
 
@@ -263,10 +331,8 @@ No badges unlocked yet.
 </main>
 
 
+
 </div>
-
-
-
 
 
 
@@ -275,5 +341,6 @@ No badges unlocked yet.
 
 
 </body>
+
 
 </html>
