@@ -1,60 +1,87 @@
 let seconds = 0;
+
 let timer;
+
 let running = false;
+
 
 
 function startTimer(){
 
-if(running) return;
 
-running = true;
+    if(running){
 
+        return;
 
-timer = setInterval(function(){
-
-seconds++;
+    }
 
 
-let mins = Math.floor(seconds / 60);
-
-let secs = seconds % 60;
+    running = true;
 
 
-document.getElementById("timer").innerHTML =
 
-(mins < 10 ? "0" + mins : mins)
-+
-":"
-+
-(secs < 10 ? "0" + secs : secs);
+    timer = setInterval(function(){
 
 
-},1000);
+        seconds++;
+
+
+        let minutes = Math.floor(seconds / 60);
+
+        let remainingSeconds = seconds % 60;
+
+
+
+        document.getElementById("timer").innerHTML =
+
+        (minutes < 10 ? "0" + minutes : minutes)
+        +
+        ":"
+        +
+        (remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds);
+
+
+
+    },1000);
+
 
 
 }
+
+
+
 
 
 
 function pauseTimer(){
 
-clearInterval(timer);
 
-running=false;
+    clearInterval(timer);
+
+    running = false;
+
 
 }
 
 
 
+
+
+
 function stopTimer(){
 
-clearInterval(timer);
 
-seconds=0;
-
-running=false;
+    clearInterval(timer);
 
 
-document.getElementById("timer").innerHTML="00:00";
+    seconds = 0;
+
+
+    running = false;
+
+
+
+    document.getElementById("timer").innerHTML = "00:00";
+
 
 }
