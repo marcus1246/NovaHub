@@ -10,318 +10,155 @@
 
 <link rel="stylesheet" href="style.css">
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
 
 <div class="dashboard">
 
-    <!-- ========= SIDEBAR ========= -->
+<!-- ================= SIDEBAR ================= -->
 
-    <aside class="sidebar">
+<aside class="sidebar">
 
-        <h2>💪 NovaHub</h2>
+<h2>💪 NovaHub</h2>
 
-        <a href="dashboard.html">🏠 Dashboard</a>
+<a href="dashboard.html">🏠 Dashboard</a>
 
-        <a href="workouts.html">🏋️ Workouts</a>
+<a href="workouts.html">🏋️ Workouts</a>
 
-        <a href="progress.html">📈 Progress</a>
+<a href="progress.html">📈 Progress</a>
 
-        <a href="profile.html">👤 Profile</a>
+<a href="profile.html">👤 Profile</a>
 
-        <button onclick="logout()">Logout</button>
+<button onclick="logout()">Logout</button>
 
-    </aside>
+</aside>
 
+<!-- ================= MAIN ================= -->
 
+<main class="content">
 
-    <!-- ========= MAIN CONTENT ========= -->
+<h1>
+Welcome back,
+<span id="username"></span> 👋
+</h1>
 
-    <main class="content">
+<p id="currentDate"></p>
 
-        <h1>
-            Welcome back,
-            <span id="username"></span>
-            👋
-        </h1>
+<p id="quote">
+Every workout makes you stronger.
+</p>
 
-        <p id="quote">
-            Every workout makes you stronger.
-        </p>
+<!-- ================= QUICK STATS ================= -->
 
+<div class="cards">
 
+<div class="card">
 
-        <!-- QUICK STATS -->
+<h2>🏆</h2>
 
-        <div class="cards">
+<h3>Total Workouts</h3>
 
-            <div class="card">
+<p>
 
-                <h2>🏆</h2>
+<span id="workoutCount">0</span>
 
-                <h3>Total Workouts</h3>
-
-                <p>
-                    <span id="workoutCount">0</span>
-                </p>
-
-            </div>
-
-
-
-            <div class="card">
-
-                <h2>🔥</h2>
-
-                <h3>Current Streak</h3>
-
-                <p>
-                    <span id="streakCount">0</span> Days
-                </p>
-
-            </div>
-
-
-
-            <div class="card">
-
-                <h2>⭐</h2>
-
-                <h3>XP Points</h3>
-
-                <p>
-                    <span id="points">0</span> XP
-                </p>
-
-            </div>
-
-
-
-            <div class="card">
-
-                <h2>🎯</h2>
-
-                <h3>Daily Goal</h3>
-
-                <p id="dailyGoal">
-                    0 / 2 Workouts
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- XP PROGRESS -->
-
-        <div class="card" style="margin-top:35px; width:100%;">
-
-            <h2>⭐ XP Progress</h2>
-
-            <br>
-
-            <div class="progress-container">
-
-                <div
-                    id="xpBar"
-                    class="progress-fill"
-                    style="width:0%;">
-                </div>
-
-            </div>
-
-            <br>
-
-            <p id="levelText">
-                Level 1 • 0 / 100 XP
-            </p>
-
-        </div>
-
-
-
-        <!-- DAILY GOAL PROGRESS -->
-
-        <div class="card" style="margin-top:30px; width:100%;">
-
-            <h2>🎯 Daily Goal Progress</h2>
-
-            <br>
-
-            <div class="progress-container">
-
-                <div
-                    id="goalBar"
-                    class="progress-fill"
-                    style="width:0%;">
-                </div>
-
-            </div>
-
-            <br>
-
-            <p id="goalText">
-                Complete 2 workouts today
-            </p>
-
-        </div>
-
-
-
-        <!-- WEEKLY ACTIVITY -->
-
-        <div class="card" style="margin-top:30px; width:100%;">
-
-            <h2>📊 Weekly Activity</h2>
-
-            <br>
-
-            <p>Mon ▓▓▓▓▓░░</p>
-            <p>Tue ▓▓▓░░░░</p>
-            <p>Wed ▓▓▓▓▓▓░</p>
-            <p>Thu ▓▓░░░░░</p>
-            <p>Fri ▓▓▓▓▓▓▓</p>
-            <p>Sat ▓▓▓▓░░░</p>
-            <p>Sun ▓▓▓░░░░</p>
-
-        </div>
-        <!-- RECENT ACTIVITY -->
-
-        <div class="card" style="margin-top:30px; width:100%;">
-
-            <h2>⚡ Recent Activity</h2>
-
-            <div id="recentActivity">
-
-                <p>🏋️ No workouts completed yet.</p>
-
-                <p>Complete your first workout to start your journey!</p>
-
-            </div>
-
-        </div>
-
-
-
-
-
-        <!-- ACHIEVEMENTS -->
-
-        <div class="card" style="margin-top:30px; width:100%;">
-
-            <h2>🏅 Achievements</h2>
-
-            <br>
-
-            <div class="achievement-grid">
-
-                <div class="badge unlocked" id="badge1">
-                    🥉
-                    <br>
-                    <small>First Workout</small>
-                </div>
-
-                <div class="badge locked" id="badge2">
-                    🥈
-                    <br>
-                    <small>10 Workouts</small>
-                </div>
-
-                <div class="badge locked" id="badge3">
-                    🥇
-                    <br>
-                    <small>50 Workouts</small>
-                </div>
-
-                <div class="badge locked" id="badge4">
-                    🔥
-                    <br>
-                    <small>7 Day Streak</small>
-                </div>
-
-                <div class="badge locked" id="badge5">
-                    ⭐
-                    <br>
-                    <small>500 XP</small>
-                </div>
-
-                <div class="badge locked" id="badge6">
-                    👑
-                    <br>
-                    <small>Level 10</small>
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-
-
-        <!-- NEXT BADGE -->
-
-        <div class="card" style="margin-top:30px; width:100%;">
-
-            <h2>🎖️ Next Goal</h2>
-
-            <p id="nextGoal">
-
-                Complete your first workout to unlock
-                <strong>🥉 First Workout</strong>
-
-            </p>
-
-        </div>
-
-
-
-
-
-        <!-- MOTIVATION -->
-
-        <div class="card" style="margin-top:30px; width:100%;">
-
-            <h2>💬 Motivation</h2>
-
-            <p id="motivation">
-
-                Success starts with showing up.
-
-            </p>
-
-        </div>
-
-
-
-
-
-        <!-- FOOTER -->
-
-        <footer style="margin-top:40px;text-align:center;opacity:0.7;">
-
-            <p>
-
-                NovaHub © 2026
-
-                <br>
-
-                Train • Improve • Repeat 💪
-
-            </p>
-
-        </footer>
-
-
-
-    </main>
+</p>
 
 </div>
 
-<script src="dashboard.js"></script>
+<div class="card">
 
-</body>
+<h2>🔥</h2>
 
-</html>
+<h3>Current Streak</h3>
+
+<p>
+
+<span id="streakCount">0</span> Days
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>⭐</h2>
+
+<h3>Total XP</h3>
+
+<p>
+
+<span id="points">0</span> XP
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🎯</h2>
+
+<h3>Daily Goal</h3>
+
+<p id="dailyGoal">
+
+0 / 2 Workouts
+
+</p>
+
+</div>
+
+</div>
+
+<!-- ================= XP ================= -->
+
+<div class="card full-card">
+
+<h2>⭐ XP Progress</h2>
+
+<div class="progress-container">
+
+<div id="xpBar" class="progress-fill"></div>
+
+</div>
+
+<p id="levelText">
+
+Level 1 • 0 / 100 XP
+
+</p>
+
+</div>
+
+<!-- ================= DAILY GOAL ================= -->
+
+<div class="card full-card">
+
+<h2>🎯 Daily Goal Progress</h2>
+
+<div class="progress-container">
+
+<div id="goalBar" class="progress-fill"></div>
+
+</div>
+
+<p id="goalText">
+
+Complete 2 workouts today
+
+</p>
+
+</div>
+
+<!-- ================= WEEKLY CHART ================= -->
+
+<div class="card full-card">
+
+<h2>📊 Weekly Activity</h2>
+
+<canvas id="weeklyChart"></canvas>
+
+</div>
