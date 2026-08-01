@@ -1,62 +1,119 @@
+// =====================================
+// NOVAHUB WORKOUT SESSION JS
+// =====================================
+
+
+// TIMER
+
 let seconds = 0;
 
-let timer;
+let timer = null;
 
 let running = false;
 
-let hasWorkedOut = false;
-
-
-
-let workoutPoints = 10; // default points
 
 
 
 
+// GET WORKOUT
 
-function startTimer(){
-
-
-    if(running){
-        return;
-    }
+let params =
+new URLSearchParams(window.location.search);
 
 
-    running = true;
-
-    hasWorkedOut = true;
-
-
-    document.getElementById("completeBtn").disabled = false;
-
-    document.getElementById("completeBtn").innerHTML =
-    "Complete Workout 🏆";
+let workout =
+params.get("workout") || "Workout";
 
 
 
-    timer = setInterval(function(){
 
 
-        seconds++;
+// XP VALUES
+
+let workoutXP = {
 
 
-        let minutes = Math.floor(seconds / 60);
+pushups:10,
 
-        let secs = seconds % 60;
+squats:10,
 
+glute:10,
 
-
-        document.getElementById("timer").innerHTML =
-
-        (minutes < 10 ? "0"+minutes : minutes)
-        +
-        ":"
-        +
-        (secs < 10 ? "0"+secs : secs);
+yoga:10,
 
 
+lunges:20,
 
-    },1000);
+mountain:20,
+
+
+pullups:30,
+
+burpees:30,
+
+jumping:10
+
+
+};
+
+
+
+
+
+let earnedXP =
+workoutXP[workout] || 10;
+
+
+
+
+
+
+
+// TIMER START
+
+function startWorkout(){
+
+
+if(running)
+return;
+
+
+
+running=true;
+
+
+
+timer=setInterval(()=>{
+
+
+seconds++;
+
+
+let min =
+Math.floor(seconds/60);
+
+
+let sec =
+seconds%60;
+
+
+
+document.getElementById("timer").textContent =
+
+(min<10?"0":"")
++
+min
++
+":"
++
+(sec<10?"0":"")
++
+sec;
+
+
+
+},1000);
+
 
 
 }
@@ -66,11 +123,17 @@ function startTimer(){
 
 
 
-function pauseTimer(){
 
-    clearInterval(timer);
+// PAUSE
 
-    running=false;
+function pauseWorkout(){
+
+
+clearInterval(timer);
+
+
+running=false;
+
 
 }
 
@@ -79,16 +142,23 @@ function pauseTimer(){
 
 
 
-function stopTimer(){
 
-    clearInterval(timer);
+// STOP
 
-    seconds=0;
-
-    running=false;
+function stopWorkout(){
 
 
-    document.getElementById("timer").innerHTML="00:00";
+clearInterval(timer);
+
+
+seconds=0;
+
+
+running=false;
+
+
+document.getElementById("timer").textContent="00:00";
+
 
 }
 
@@ -97,33 +167,44 @@ function stopTimer(){
 
 
 
+
+// COMPLETE
 
 function completeWorkout(){
 
 
-    if(!hasWorkedOut){
 
-        alert("Start the workout first 💪");
-
-        return;
-
-    }
+if(seconds < 10){
 
 
+alert("Complete some workout time first 💪");
 
 
-// WORKOUT COUNT
-
-let workouts =
-Number(localStorage.getItem("totalWorkouts")) || 0;
+return;
 
 
-workouts++;
+}
+
+
+
+
+// TOTAL WORKOUTS
+
+
+let total =
+
+Number(localStorage.getItem("totalWorkouts"))
+||
+0;
+
+
+
+total++;
 
 
 localStorage.setItem(
 "totalWorkouts",
-workouts
+total
 );
 
 
@@ -132,14 +213,18 @@ workouts
 
 
 
-// POINT SYSTEM
+// XP
 
 
 let points =
-Number(localStorage.getItem("points")) || 0;
+
+Number(localStorage.getItem("points"))
+||
+0;
 
 
-points += workoutPoints;
+
+points += earnedXP;
 
 
 
@@ -154,31 +239,115 @@ points
 
 
 
-// DAILY GOAL
 
-let today =
-new Date().toDateString();
+// DAILY GOAL
 
 
 localStorage.setItem(
+
 "dailyGoalCompleted",
-today
+
+new Date().toDateString()
+
 );
+
+
+
+
+
+
+
+
+// WEEKLY CHART
+
+
+let weekly =
+
+JSON.parse(
+localStorage.getItem("weeklyWorkouts")
+)
+
+||
+
+[0,0,0,0,0,0,0];
+
+
+
+
+let day =
+new Date().getDay();
+
+
+
+let index =
+day === 0 ? 6 : day-1;
+
+
+
+weekly[index]++;
+
+
+
+localStorage.setItem(
+
+"weeklyWorkouts",
+
+JSON.stringify(weekly)
+
+);
+
+
+
+
+
+
+
+
+// STREAK
+
+
+let streak =
+
+Number(localStorage.getItem("streak"))
+||
+0;
+
+
+
+streak++;
+
+
+
+localStorage.setItem(
+
+"streak",
+
+streak
+
+);
+
+
 
 
 
 
 
 alert(
-"Workout Completed! 🏆 +" 
-+ workoutPoints +
-" Points"
+
+"Workout Complete! 🔥\n+"
+
++
+earnedXP
++
+" XP"
+
 );
 
 
 
 
-window.location.href="dashboard.html";
 
+
+window.location.href="dashboard.html";
 
 }
