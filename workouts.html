@@ -29,6 +29,7 @@
 <h2>💪 NovaHub</h2>
 
 
+
 <nav>
 
 
@@ -37,9 +38,11 @@
 </a>
 
 
+
 <a href="workouts.html">
 🏋️ Workouts
 </a>
+
 
 
 <a href="progress.html">
@@ -47,12 +50,16 @@
 </a>
 
 
+
 <a href="profile.html">
 👤 Profile
 </a>
 
 
+
 </nav>
+
+
 
 
 <button onclick="logout()">
@@ -60,6 +67,7 @@
 🚪 Logout
 
 </button>
+
 
 
 </aside>
@@ -72,7 +80,6 @@
 
 <!-- WORKOUT CONTENT -->
 
-
 <main class="content">
 
 
@@ -83,7 +90,7 @@
 
 
 <p>
-Choose a workout and start earning XP.
+Choose a workout and earn XP.
 </p>
 
 
@@ -91,21 +98,18 @@ Choose a workout and start earning XP.
 
 
 
-
-<!-- SEARCH -->
-
 <div class="card">
 
 
 <h2>
-🔎 Search Workout
+🔎 Search
 </h2>
 
 
 <input 
-type="text"
 id="searchWorkout"
-placeholder="Search exercises..."
+type="text"
+placeholder="Search workouts..."
 >
 
 
@@ -115,11 +119,6 @@ placeholder="Search exercises..."
 
 
 
-
-
-
-
-<!-- FILTERS -->
 
 
 <div class="card">
@@ -132,34 +131,24 @@ placeholder="Search exercises..."
 
 
 <button onclick="filterWorkout('all')">
-
 All
-
 </button>
-
 
 
 <button onclick="filterWorkout('Beginner')">
-
 Beginner
-
 </button>
-
 
 
 <button onclick="filterWorkout('Intermediate')">
-
 Intermediate
-
 </button>
-
 
 
 <button onclick="filterWorkout('Advanced')">
-
 Advanced
-
 </button>
+
 
 
 </div>
@@ -172,27 +161,17 @@ Advanced
 
 
 
-<!-- WORKOUT GRID -->
-
-
-<div 
-class="workout-grid"
-id="workoutContainer">
+<div class="workout-grid" id="workoutContainer">
 
 
 
 
 
-<!-- PUSH UPS -->
 
-<div class="workout-card"
-data-level="Beginner">
+<div class="workout-card" data-level="Beginner">
 
 
-<img 
-src="https://media.giphy.com/media/zcMcG2D8Z4qT6/giphy.gif"
->
-
+<img src="https://media.giphy.com/media/zcMcG2D8Z4qT6/giphy.gif">
 
 
 <h3>
@@ -215,9 +194,7 @@ Push Ups
 </p>
 
 
-<a 
-class="btn"
-href="workout-session.html?workout=pushups">
+<a class="btn" href="workout-session.html?workout=pushups">
 
 Start Workout
 
@@ -232,18 +209,10 @@ Start Workout
 
 
 
+<div class="workout-card" data-level="Beginner">
 
 
-<!-- SQUATS -->
-
-
-<div class="workout-card"
-data-level="Beginner">
-
-
-<img
-src="https://media.giphy.com/media/aclHk1t8aYq3C/giphy.gif"
->
+<img src="https://media.giphy.com/media/aclHk1t8aYq3C/giphy.gif">
 
 
 <h3>
@@ -266,9 +235,7 @@ Squats
 </p>
 
 
-<a 
-class="btn"
-href="workout-session.html?workout=squats">
+<a class="btn" href="workout-session.html?workout=squats">
 
 Start Workout
 
@@ -283,69 +250,10 @@ Start Workout
 
 
 
+<div class="workout-card" data-level="Intermediate">
 
 
-<!-- PULL UPS -->
-
-
-<div class="workout-card"
-data-level="Advanced">
-
-
-<img
-src="https://media.giphy.com/media/5cZ8Rr6rXcL0c/giphy.gif"
->
-
-
-<h3>
-Pull Ups
-</h3>
-
-
-<p>
-💪 Back
-</p>
-
-
-<p>
-🔴 Advanced
-</p>
-
-
-<p>
-⭐ +30 XP
-</p>
-
-
-<a 
-class="btn"
-href="workout-session.html?workout=pullups">
-
-Start Workout
-
-</a>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- LUNGES -->
-
-
-<div class="workout-card"
-data-level="Intermediate">
-
-
-<img
-src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
->
+<img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
 
 
 <h3>
@@ -368,9 +276,7 @@ Lunges
 </p>
 
 
-<a 
-class="btn"
-href="workout-session.html?workout=lunges">
+<a class="btn" href="workout-session.html?workout=lunges">
 
 Start Workout
 
@@ -385,18 +291,51 @@ Start Workout
 
 
 
+<div class="workout-card" data-level="Advanced">
 
 
-<!-- BURPEES -->
+<img src="https://media.giphy.com/media/5cZ8Rr6rXcL0c/giphy.gif">
 
 
-<div class="workout-card"
-data-level="Advanced">
+<h3>
+Pull Ups
+</h3>
 
 
-<img
-src="https://media.giphy.com/media/26BRqR8g6J8K9d6rK/giphy.gif"
->
+<p>
+💪 Back
+</p>
+
+
+<p>
+🔴 Advanced
+</p>
+
+
+<p>
+⭐ +30 XP
+</p>
+
+
+<a class="btn" href="workout-session.html?workout=pullups">
+
+Start Workout
+
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="workout-card" data-level="Advanced">
+
+
+<img src="https://media.giphy.com/media/26BRqR8g6J8K9d6rK/giphy.gif">
 
 
 <h3>
@@ -419,9 +358,7 @@ Burpees
 </p>
 
 
-<a 
-class="btn"
-href="workout-session.html?workout=burpees">
+<a class="btn" href="workout-session.html?workout=burpees">
 
 Start Workout
 
@@ -436,56 +373,8 @@ Start Workout
 
 
 
-
-
-<!-- JUMPING JACKS -->
-
-
-<div class="workout-card"
-data-level="Beginner">
-
-
-<img
-src="https://media.giphy.com/media/3o7TKTDn976rzVgky4/giphy.gif"
->
-
-
-<h3>
-Jumping Jacks
-</h3>
-
-
-<p>
-🔥 Cardio
-</p>
-
-
-<p>
-🟢 Beginner
-</p>
-
-
-<p>
-⭐ +10 XP
-</p>
-
-
-<a 
-class="btn"
-href="workout-session.html?workout=jumping">
-
-Start Workout
-
-</a>
-
-
 </div>
 
-
-
-
-
-</div>
 
 
 
@@ -496,8 +385,6 @@ Start Workout
 
 
 </div>
-
-
 
 
 
