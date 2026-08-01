@@ -768,3 +768,55 @@ transform:translateY(0);
 
 
 }
+/* =========================
+   SIDEBAR SPACING FIX
+========================= */
+
+
+.sidebar{
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100vh;
+
+    position:sticky;
+
+    top:0;
+
+}
+
+
+
+.sidebar nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+
+
+.sidebar a{
+
+    display:block;
+
+    padding:15px;
+
+    border-radius:12px;
+
+}
+
+
+
+.sidebar button{
+
+    margin-top:auto;
+
+}
