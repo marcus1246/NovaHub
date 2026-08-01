@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NovaHub Progress</title>
 
 <link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -13,20 +19,69 @@
 <body>
 
 
-<div class="workout-page">
+<div class="dashboard">
 
 
 
-<a class="back-btn" href="dashboard.html">
-⬅ Back To Dashboard
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+
+<h2>💪 NovaHub</h2>
+
+
+<nav>
+
+
+<a href="dashboard.html">
+🏠 Dashboard
 </a>
 
 
+<a href="workouts.html">
+🏋️ Workouts
+</a>
+
+
+<a href="progress.html">
+📈 Progress
+</a>
+
+
+<a href="profile.html">
+👤 Profile
+</a>
+
+
+</nav>
+
+
+
+<button onclick="logout()">
+
+🚪 Logout
+
+</button>
+
+
+</aside>
+
+
+
+
+
+
+
+
+<!-- CONTENT -->
+
+<main class="content">
 
 
 
 <h1>
-📈 My Progress
+📈 Your Progress
 </h1>
 
 
@@ -40,32 +95,21 @@ Track your fitness journey.
 
 
 
-<div class="cards">
+<section class="cards">
 
 
 
 <div class="card">
 
+<h2>🔥</h2>
 
-<h2>
-🏆
-</h2>
-
-
-<h3>
-Total Workouts
-</h3>
-
+<h3>Total Workouts</h3>
 
 <p id="progressWorkouts">
 0
 </p>
 
-
-
 </div>
-
-
 
 
 
@@ -73,85 +117,121 @@ Total Workouts
 
 <div class="card">
 
+<h2>⭐</h2>
 
-<h2>
-🔥
-</h2>
+<h3>Total XP</h3>
 
-
-<h3>
-Current Streak
-</h3>
-
-
-<p id="progressStreak">
-0 Days
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-🎯
-</h2>
-
-
-<h3>
-Daily Goals
-</h3>
-
-
-<p id="progressGoals">
+<p id="progressXP">
 0
 </p>
 
-
-
-</div>
-
-
-
-
 </div>
 
 
 
 
 
+<div class="card">
+
+<h2>🏆</h2>
+
+<h3>Level</h3>
+
+<p id="progressLevel">
+1
+</p>
+
+</div>
 
 
-<div class="exercise-card" style="margin-top:40px;">
+
+
+
+<div class="card">
+
+<h2>🔥</h2>
+
+<h3>Best Streak</h3>
+
+<p id="bestStreak">
+0 Days
+</p>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<section class="card full-card">
 
 
 <h2>
-🏅 Fitness Level
+📊 Workout Progress
 </h2>
 
 
-<p id="level">
-Beginner
+<div class="chart-container">
+
+
+<canvas id="progressChart"></canvas>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="card full-card">
+
+
+<h2>
+📜 Workout History
+</h2>
+
+
+<div id="historyList">
+
+
+<p>
+No workouts completed yet.
 </p>
 
 
-
 </div>
 
 
+</section>
 
+
+
+
+
+
+
+</main>
 
 
 
 </div>
+
 
 
 
@@ -159,6 +239,8 @@ Beginner
 
 
 <script src="progress.js"></script>
+
+<script src="sidebar.js"></script>
 
 
 </body>
