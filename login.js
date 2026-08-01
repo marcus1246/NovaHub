@@ -1,30 +1,60 @@
-function login() {
-
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
+function login(){
 
 
-    let savedUser = JSON.parse(localStorage.getItem("user"));
+let email = document.getElementById("email").value;
+
+let password = document.getElementById("password").value;
 
 
-    if (!savedUser) {
-        alert("No account found. Please sign up first.");
-        return;
-    }
+
+let savedUser = JSON.parse(
+localStorage.getItem("user")
+);
 
 
-    if (email === savedUser.email && password === savedUser.password) {
 
-        localStorage.setItem("loggedInUser", savedUser.username);
+if(!savedUser){
 
-        alert("Login successful!");
 
-        window.location.href = "dashboard.html";
+alert("No account found. Please sign up first.");
 
-    } else {
+return;
 
-        alert("Incorrect email or password");
 
-    }
+}
+
+
+
+
+if(
+email === savedUser.email &&
+password === savedUser.password
+){
+
+
+localStorage.setItem(
+"loggedInUser",
+savedUser.username
+);
+
+
+
+alert("Login successful!");
+
+
+
+window.location.href="dashboard.html";
+
+
+
+}else{
+
+
+alert("Incorrect email or password");
+
+
+}
+
+
 
 }
