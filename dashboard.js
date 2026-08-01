@@ -169,3 +169,181 @@ stepSize:1
 }
 
 });
+// =====================================
+// NOVAHUB DASHBOARD V3
+// PART 2
+// =====================================
+
+
+// ---------- MOTIVATIONAL QUOTES ----------
+
+const quotes = [
+
+"💪 Every workout makes you stronger.",
+
+"🔥 Push yourself because no one else can do it for you.",
+
+"🏆 Consistency beats perfection.",
+
+"⚡ Train today. Dominate tomorrow.",
+
+"❤️ Success starts with showing up.",
+
+"🚀 Small progress is still progress."
+
+];
+
+const randomQuote =
+quotes[Math.floor(Math.random() * quotes.length)];
+
+document.getElementById("quote").textContent =
+randomQuote;
+
+document.getElementById("motivation").textContent =
+randomQuote;
+
+
+
+// ---------- RECENT ACTIVITY ----------
+
+const activity =
+document.getElementById("recentActivity");
+
+if(workouts === 0){
+
+activity.innerHTML = `
+<p>🏋️ No workouts completed yet.</p>
+<p>Complete your first workout to begin your journey.</p>
+`;
+
+}else{
+
+activity.innerHTML = `
+<p>✅ Last workout completed!</p>
+<p>🏆 Total Workouts: ${workouts}</p>
+<p>⭐ Total XP: ${points}</p>
+<p>🔥 Current Streak: ${streak} day(s)</p>
+`;
+
+}
+
+
+
+// ---------- ACHIEVEMENTS ----------
+
+function unlockBadge(id){
+
+const badge =
+document.getElementById(id);
+
+badge.classList.remove("locked");
+
+badge.classList.add("unlocked");
+
+}
+
+if(workouts >= 1){
+
+unlockBadge("badge1");
+
+}
+
+if(workouts >= 10){
+
+unlockBadge("badge2");
+
+}
+
+if(workouts >= 50){
+
+unlockBadge("badge3");
+
+}
+
+if(streak >= 7){
+
+unlockBadge("badge4");
+
+}
+
+if(points >= 500){
+
+unlockBadge("badge5");
+
+}
+
+if(level >= 10){
+
+unlockBadge("badge6");
+
+}
+
+
+
+// ---------- NEXT GOAL ----------
+
+const nextGoal =
+document.getElementById("nextGoal");
+
+if(workouts < 1){
+
+nextGoal.textContent =
+"🏋️ Complete your first workout.";
+
+}
+else if(workouts < 10){
+
+nextGoal.textContent =
+`🏆 ${10-workouts} more workout(s) until the 10 Workout badge.`;
+
+}
+else if(workouts < 50){
+
+nextGoal.textContent =
+`🥇 ${50-workouts} more workout(s) until Fitness Master.`;
+
+}
+else if(streak < 7){
+
+nextGoal.textContent =
+`🔥 ${7-streak} more day(s) until the 7 Day Streak badge.`;
+
+}
+else if(points < 500){
+
+nextGoal.textContent =
+`⭐ Earn ${500-points} more XP to unlock XP Master.`;
+
+}
+else{
+
+nextGoal.textContent =
+"🎉 You've unlocked every current achievement!";
+
+}
+
+
+
+// ---------- FOOTER YEAR ----------
+
+const footer =
+document.querySelector(".dashboard-footer p");
+
+if(footer){
+
+footer.innerHTML =
+`NovaHub © ${new Date().getFullYear()}`;
+
+}
+
+
+
+// ---------- LOGOUT ----------
+
+function logout(){
+
+localStorage.removeItem("loggedInUser");
+
+window.location.href = "login.html";
+
+}
