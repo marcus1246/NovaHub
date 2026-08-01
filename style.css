@@ -1,3 +1,7 @@
+/* =====================
+   NOVAHUB GLOBAL STYLE
+===================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,63 +9,153 @@
     font-family: Arial, sans-serif;
 }
 
+
 body {
+
     background: #0f0f0f;
     color: white;
     min-height: 100vh;
+
 }
 
-h1 {
-    font-size: 50px;
-    margin-bottom: 20px;
-}
-
-p {
-    font-size: 20px;
-    color: #cccccc;
-}
 
 a {
-    display: inline-block;
-    margin: 15px;
-    padding: 12px 25px;
-    background: #00ff88;
-    color: black;
+
     text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
+    color: white;
+
 }
 
-a:hover {
-    background: white;
+
+button {
+
+    cursor: pointer;
+    border: none;
+
 }
 
-body {
+
+
+
+/* =====================
+   HOME PAGE
+===================== */
+
+
+.hero {
+
     text-align: center;
     padding-top: 150px;
+
 }
+
+
+.hero h1 {
+
+    font-size: 50px;
+
+}
+
+
+.hero p {
+
+    margin:20px;
+    color:#aaa;
+
+}
+
+
+
+
+/* =====================
+   BUTTONS
+===================== */
+
+
+.btn,
+button {
+
+    background:#00ff88;
+    color:black;
+    padding:12px 25px;
+    border-radius:10px;
+    font-weight:bold;
+
+}
+
+
+button:hover,
+.btn:hover {
+
+    background:white;
+
+}
+
+
+
+
+/* =====================
+   LOGIN + SIGNUP
+===================== */
+
+
+input {
+
+    width:300px;
+    padding:15px;
+    margin:10px;
+    border-radius:10px;
+    border:none;
+
+}
+
+
+
+form,
+.auth-box {
+
+    text-align:center;
+    margin-top:120px;
+
+}
+
+
+
+
+
+/* =====================
+   DASHBOARD
+===================== */
+
+
 .dashboard {
+
     display:flex;
     min-height:100vh;
-    padding:0;
+
 }
 
 
 .sidebar {
 
     width:250px;
-    background:#1b1b1b;
+    background:#181818;
     padding:30px;
-
     display:flex;
     flex-direction:column;
+
+}
+
+
+.sidebar h2 {
+
+    margin-bottom:30px;
+
 }
 
 
 .sidebar a {
 
-    color:white;
-    text-decoration:none;
     margin:15px 0;
 
 }
@@ -70,11 +164,6 @@ body {
 .sidebar button {
 
     margin-top:auto;
-    padding:12px;
-    background:#00ff88;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
 
 }
 
@@ -82,12 +171,17 @@ body {
 
 .content {
 
-    flex:1;
     padding:40px;
-    text-align:left;
+    flex:1;
 
 }
 
+
+
+
+/* =====================
+   DASHBOARD CARDS
+===================== */
 
 
 .cards {
@@ -99,26 +193,24 @@ body {
 }
 
 
-
 .card {
 
     background:#222;
     padding:25px;
     border-radius:15px;
-    width:200px;
+    width:220px;
 
 }
 
 
 
-.workout {
 
-    margin-top:40px;
-    background:#222;
-    padding:25px;
-    border-radius:15px;
 
-}
+/* =====================
+   WORKOUT PAGE
+===================== */
+
+
 .workout-page {
 
     padding:40px;
@@ -127,53 +219,45 @@ body {
 }
 
 
-.exercise-section {
+.back-btn {
 
-    margin-top:40px;
+    display:inline-block;
+    background:#00ff88;
+    color:black;
+    padding:12px 25px;
+    border-radius:10px;
+    margin-bottom:30px;
+    font-weight:bold;
 
 }
+
+
+
+
+.exercise-section {
+
+    margin-top:50px;
+
+}
+
+
+
+.exercise-grid {
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-top:25px;
+
+}
+
 
 
 .exercise-card {
 
     background:#222;
     padding:25px;
-    margin:20px auto;
     border-radius:15px;
-    max-width:500px;
-
-}
-
-
-.exercise-card h3 {
-
-    color:#00ff88;
-
-}
-
-
-.exercise-card p {
-
-    color:white;
-
-}
-.exercise-card button {
-
-    margin-top:15px;
-    padding:12px 25px;
-    border:none;
-    border-radius:10px;
-    background:#00ff88;
-    color:black;
-    font-weight:bold;
-    cursor:pointer;
-
-}
-
-
-.exercise-card button:hover {
-
-    background:white;
 
 }
 
@@ -188,91 +272,93 @@ body {
 
 
 
-.completion {
+.exercise-card button {
 
-    margin-top:50px;
-    background:#222;
-    padding:30px;
-    border-radius:15px;
+    margin-top:20px;
 
 }
 
 
 
-.completion-sticker {
-
-    font-size:80px;
-    margin:20px;
-
-}
-.exercise-grid {
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-
-}
 
 
-.exercise-card {
-
-    background:#222;
-    padding:25px;
-    border-radius:15px;
-
-}
+/* =====================
+   WORKOUT SESSION
+===================== */
 
 
-@media(max-width:900px){
-
-.exercise-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-}
-
-
-@media(max-width:600px){
-
-.exercise-grid{
-grid-template-columns:1fr;
-}
-
-}
 .session {
 
-text-align:center;
-padding:50px;
+    text-align:center;
+    padding:50px;
 
 }
 
 
 .session-controls button {
 
-margin:10px;
-padding:15px 30px;
-border:none;
-border-radius:10px;
-background:#00ff88;
-font-weight:bold;
-cursor:pointer;
+    margin:10px;
 
 }
 
 
-.back-btn {
 
-display:inline-block;
-margin-bottom:30px;
+
+/* =====================
+   MOBILE DESIGN
+===================== */
+
+
+@media(max-width:900px){
+
+
+.dashboard {
+
+    flex-direction:column;
 
 }
 
 
-.current-workout {
+.sidebar {
 
-background:#222;
-padding:30px;
-border-radius:15px;
-margin-top:40px;
+    width:100%;
+
+}
+
+
+.cards {
+
+    flex-direction:column;
+
+}
+
+
+.exercise-grid {
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+.exercise-grid {
+
+    grid-template-columns:1fr;
+
+}
+
+
+input {
+
+    width:90%;
+
+}
+
 
 }
