@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NovaHub Workout Session</title>
 
@@ -13,38 +17,63 @@
 <body>
 
 
-<div class="session-page">
+<div class="workout-session">
 
 
 
-<a class="back-btn" href="workouts.html">
+<a href="workouts.html" class="btn">
+
 ⬅ Back To Workouts
+
 </a>
 
 
 
 
 
-<h1>
-🔥 Workout Session
+<h1 id="workoutName">
+
+Workout
+
 </h1>
 
 
-<p>
-Stay focused. Finish strong.
-</p>
+
+<div class="session-card">
+
+
+
+<img id="workoutGif"
+
+src=""
+
+alt="Workout GIF">
 
 
 
 
 
-<div class="timer-box">
+<h2 id="difficulty">
+
+Difficulty
+
+</h2>
 
 
-<h2 id="timer">
+
+<h2 id="reward">
+
+⭐ +10 XP
+
+</h2>
+
+
+
+
+
+<div id="timer">
+
 00:00
-</h2>
-
 
 </div>
 
@@ -52,24 +81,30 @@ Stay focused. Finish strong.
 
 
 
+<div class="session-buttons">
 
-<div class="session-controls">
 
 
-<button onclick="startTimer()">
+<button onclick="startWorkout()">
+
 ▶ Start
+
 </button>
 
 
 
-<button onclick="pauseTimer()">
+<button onclick="pauseWorkout()">
+
 ⏸ Pause
+
 </button>
 
 
 
-<button onclick="stopTimer()">
+<button onclick="stopWorkout()">
+
 ⏹ Stop
+
 </button>
 
 
@@ -80,72 +115,27 @@ Stay focused. Finish strong.
 
 
 
+<button class="complete-btn"
 
+onclick="completeWorkout()">
 
-
-<div class="exercise-card">
-
-
-<h2>
-Today's Workout 💪
-</h2>
-
-
-<br>
-
-
-<p>
-🏋️ Push Ups - 3 Sets × 15
-</p>
-
-
-<p>
-🦵 Squats - 3 Sets × 20
-</p>
-
-
-<p>
-🔥 Burpees - 3 Sets × 10
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-<br><br>
-
-
-
-<div class="exercise-card">
-
-
-<h2>
 🏆 Complete Workout
-</h2>
 
-
-<p>
-Finish your workout to earn progress.
-</p>
-
-
-<button>
-Complete
 </button>
 
 
+
+
+
 </div>
 
 
 
 
 
+
 </div>
+
 
 
 
