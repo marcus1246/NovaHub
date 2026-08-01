@@ -4,13 +4,12 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NovaHub Dashboard</title>
 
 <link rel="stylesheet" href="style.css">
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -22,16 +21,19 @@
 
 
 
+<!-- SIDEBAR -->
+
 <aside class="sidebar">
 
 
 <h2>💪 NovaHub</h2>
 
 
+
 <nav>
 
 
-<a href="dashboard.html" class="active">
+<a href="dashboard.html">
 🏠 Dashboard
 </a>
 
@@ -54,9 +56,13 @@
 </nav>
 
 
+
 <button onclick="logout()">
+
 🚪 Logout
+
 </button>
+
 
 
 </aside>
@@ -66,7 +72,11 @@
 
 
 
+
+<!-- PAGE CONTENT -->
+
 <main class="content">
+
 
 
 <h1>
@@ -78,20 +88,8 @@ User
 </h1>
 
 
-<p id="currentDate"></p>
 
-
-<p id="quote">
-Stay consistent 💪
-</p>
-
-
-
-
-
-
-
-<div class="cards">
+<section class="cards">
 
 
 <div class="card">
@@ -100,10 +98,11 @@ Stay consistent 💪
 
 <h3>Total Workouts</h3>
 
-<p id="workoutCount">0</p>
+<p id="workoutCount">
+0
+</p>
 
 </div>
-
 
 
 
@@ -111,9 +110,11 @@ Stay consistent 💪
 
 <h2>⭐</h2>
 
-<h3>XP Points</h3>
+<h3>XP</h3>
 
-<p id="points">0</p>
+<p id="points">
+0
+</p>
 
 </div>
 
@@ -126,59 +127,14 @@ Stay consistent 💪
 
 <h3>Streak</h3>
 
-<p>
-<span id="streakCount">0</span> Days
+<p id="streakCount">
+0
 </p>
 
 </div>
-
-
-
-
-<div class="card">
-
-<h2>🎯</h2>
-
-<h3>Daily Goal</h3>
-
-<p id="dailyGoal">
-0 / 2
-</p>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<section class="card full-card">
-
-
-<h2>
-⭐ Level Progress
-</h2>
-
-
-<div class="progress-container">
-
-<div id="xpBar" class="progress-fill"></div>
-
-</div>
-
-
-<p id="levelText">
-Level 1
-</p>
 
 
 </section>
-
-
 
 
 
@@ -192,12 +148,11 @@ Level 1
 </h2>
 
 
-
 <div class="chart-container">
 
 
 <p id="chartLoading">
-Loading workout data... 📊
+Loading chart...
 </p>
 
 
@@ -223,81 +178,47 @@ Loading workout data... 📊
 </h2>
 
 
-
 <div class="achievement-grid">
 
 
-<div class="badge locked" id="badge1">
+<div class="badge locked">
 🥉
-<span>First Workout</span>
+<span>
+First Workout
+</span>
 </div>
 
 
-<div class="badge locked" id="badge2">
+
+<div class="badge locked">
 🥈
-<span>10 Workouts</span>
+<span>
+10 Workouts
+</span>
 </div>
 
 
-<div class="badge locked" id="badge3">
+
+<div class="badge locked">
 🥇
-<span>50 Workouts</span>
+<span>
+50 Workouts
+</span>
 </div>
 
-
-<div class="badge locked" id="badge4">
-🔥
-<span>7 Day Streak</span>
-</div>
-
-
-<div class="badge locked" id="badge5">
-⭐
-<span>500 XP</span>
-</div>
-
-
-<div class="badge locked" id="badge6">
-👑
-<span>Level 10</span>
-</div>
 
 
 </div>
 
 
 </section>
-
-
-
-
-
-
-
-<section class="card full-card">
-
-
-<h2>
-📜 Recent Activity
-</h2>
-
-
-<div id="recentActivity">
-
-No workouts yet.
-
-</div>
-
-
-</section>
-
-
 
 
 
 
 
 </main>
+
 
 
 </div>
