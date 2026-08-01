@@ -1,207 +1,68 @@
 // =================================
-// NOVAHUB WORKOUT SESSION
+// NOVAHUB WORKOUT FILTER SYSTEM
 // =================================
 
 
-// GET WORKOUT FROM URL
 
-const params =
-new URLSearchParams(window.location.search);
+const searchInput =
+document.getElementById("searchWorkout");
 
 
-const workout =
-params.get("workout") || "pushups";
-
+const workoutCards =
+document.querySelectorAll(".workout-card");
 
 
 
-// WORKOUT DATA
-
-const workouts = {
 
 
-pushups:{
-name:"Push Ups",
-difficulty:"🟢 Beginner",
-xp:10,
-gif:"https://media.giphy.com/media/zcMcG2D8Z4qT6/giphy.gif"
-},
+// SEARCH FUNCTION
 
 
-squats:{
-name:"Squats",
-difficulty:"🟢 Beginner",
-xp:10,
-gif:"https://media.giphy.com/media/aclHk1t8aYq3C/giphy.gif"
-},
+if(searchInput){
 
 
-pullups:{
-name:"Pull Ups",
-difficulty:"🔴 Advanced",
-xp:30,
-gif:"https://media.giphy.com/media/5cZ8Rr6rXcL0c/giphy.gif"
-},
+searchInput.addEventListener(
+"input",
+function(){
 
 
-lunges:{
-name:"Lunges",
-difficulty:"🟡 Intermediate",
-xp:20,
-gif:"https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
-},
+let search =
+this.value.toLowerCase();
 
 
-burpees:{
-name:"Burpees",
-difficulty:"🔴 Advanced",
-xp:30,
-gif:"https://media.giphy.com/media/26BRqR8g6J8K9d6rK/giphy.gif"
-},
+
+workoutCards.forEach(card=>{
 
 
-jumping:{
-name:"Jumping Jacks",
-difficulty:"🟢 Beginner",
-xp:10,
-gif:"https://media.giphy.com/media/3o7TKTDn976rzVgky4/giphy.gif"
-},
+let name =
+card.querySelector("h3")
+.textContent
+.toLowerCase();
 
 
-mountain:{
-name:"Mountain Climbers",
-difficulty:"🟡 Intermediate",
-xp:20,
-gif:"https://media.giphy.com/media/1zi2SFsjUwzB0e9iO5/giphy.gif"
+
+if(name.includes(search)){
+
+
+card.style.display="block";
+
+
 }
 
-};
+else{
 
 
-
-
-
-let currentWorkout =
-workouts[workout];
-
-
-
-if(currentWorkout){
-
-
-document.getElementById("workoutName").textContent =
-currentWorkout.name;
-
-
-document.getElementById("difficulty").textContent =
-currentWorkout.difficulty;
-
-
-document.getElementById("reward").textContent =
-"⭐ +" + currentWorkout.xp + " XP";
-
-
-document.getElementById("workoutGif").src =
-currentWorkout.gif;
+card.style.display="none";
 
 
 }
 
 
 
+});
 
 
-
-// TIMER
-
-
-let seconds = 0;
-
-let timer;
-
-let running=false;
-
-
-
-
-function startWorkout(){
-
-
-if(running)
-return;
-
-
-running=true;
-
-
-timer=setInterval(()=>{
-
-
-seconds++;
-
-
-let minutes =
-Math.floor(seconds/60);
-
-
-let secs =
-seconds%60;
-
-
-
-document.getElementById("timer").textContent =
-
-(minutes<10?"0":"")
-+minutes
-+
-":"
-+
-(secs<10?"0":"")
-+secs;
-
-
-
-},1000);
-
-
-
-}
-
-
-
-
-
-
-function pauseWorkout(){
-
-
-clearInterval(timer);
-
-
-running=false;
-
-
-}
-
-
-
-
-
-
-
-function stopWorkout(){
-
-
-clearInterval(timer);
-
-
-running=false;
-
-
-seconds=0;
-
-
-document.getElementById("timer").textContent="00:00";
+});
 
 
 }
@@ -213,89 +74,50 @@ document.getElementById("timer").textContent="00:00";
 
 
 
-// COMPLETE WORKOUT
+// FILTER FUNCTION
 
 
-function completeWorkout(){
+function filterWorkout(level){
 
 
-if(seconds < 10){
 
-alert("Do the workout first 💪");
+workoutCards.forEach(card=>{
 
-return;
+
+let difficulty =
+card.dataset.level;
+
+
+
+if(level==="all"){
+
+
+card.style.display="block";
+
+
+}
+
+
+else if(difficulty===level){
+
+
+card.style.display="block";
+
+
+}
+
+
+else{
+
+
+card.style.display="none";
+
 
 }
 
 
 
-
-
-let total =
-
-Number(localStorage.getItem("totalWorkouts"))
-||0;
-
-
-total++;
-
-
-localStorage.setItem(
-"totalWorkouts",
-total
-);
-
-
-
-
-
-
-let points =
-
-Number(localStorage.getItem("points"))
-||0;
-
-
-points += currentWorkout.xp;
-
-
-localStorage.setItem(
-"points",
-points
-);
-
-
-
-
-
-
-let today =
-new Date().toDateString();
-
-
-localStorage.setItem(
-"dailyGoalCompleted",
-today
-);
-
-
-
-
-
-
-alert(
-
-"Workout Completed! 🔥\n+"
-+
-currentWorkout.xp
-+
-" XP"
-
-);
-
-
-
-window.location.href="dashboard.html";
+});
 
 
 }
