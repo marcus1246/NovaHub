@@ -1,224 +1,171 @@
-// ==============================
-// NOVAHUB DASHBOARD - PART 1
-// ==============================
+// =====================================
+// NOVAHUB DASHBOARD V3
+// PART 1
+// =====================================
 
-// ---------- LOGIN CHECK ----------
 
-let user = localStorage.getItem("loggedInUser");
+// ---------- LOGIN ----------
 
-if (!user) {
+const username = localStorage.getItem("loggedInUser");
+
+if (!username) {
     window.location.href = "login.html";
 }
 
+
 // ---------- USERNAME ----------
 
-document.getElementById("username").textContent = user;
+document.getElementById("username").textContent = username;
 
 
-// ---------- USER DATA ----------
+// ---------- DATE ----------
 
-let workouts = Number(localStorage.getItem("totalWorkouts")) || 0;
-let streak = Number(localStorage.getItem("streak")) || 0;
-let points = Number(localStorage.getItem("points")) || 0;
+const today = new Date();
+
+const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+};
+
+document.getElementById("currentDate").textContent =
+today.toLocaleDateString("en-US", options);
+
+
+// ---------- LOAD DATA ----------
+
+const workouts =
+Number(localStorage.getItem("totalWorkouts")) || 0;
+
+const streak =
+Number(localStorage.getItem("streak")) || 0;
+
+const points =
+Number(localStorage.getItem("points")) || 0;
 
 
 // ---------- UPDATE STATS ----------
 
-document.getElementById("workoutCount").textContent = workouts;
-document.getElementById("streakCount").textContent = streak;
-document.getElementById("points").textContent = points;
+document.getElementById("workoutCount").textContent =
+workouts;
+
+document.getElementById("streakCount").textContent =
+streak;
+
+document.getElementById("points").textContent =
+points;
 
 
-// ---------- XP SYSTEM ----------
+// ---------- LEVEL SYSTEM ----------
 
-let level = Math.floor(points / 100) + 1;
-let currentXP = points % 100;
-let xpPercent = currentXP;
+const level = Math.floor(points / 100) + 1;
+
+const currentXP = points % 100;
 
 document.getElementById("levelText").textContent =
-    "Level " + level + " • " + currentXP + " / 100 XP";
+`Level ${level} • ${currentXP}/100 XP`;
 
 
-// Animate XP bar
-setTimeout(function () {
-    document.getElementById("xpBar").style.width = xpPercent + "%";
-}, 300);
+// ---------- XP BAR ----------
+
+setTimeout(() => {
+
+document.getElementById("xpBar").style.width =
+currentXP + "%";
+
+},300);
 
 
 // ---------- DAILY GOAL ----------
 
-// Goal = 2 workouts each day
+const goalDone =
+localStorage.getItem("dailyGoalCompleted");
 
-let today = new Date().toDateString();
+let goalProgress = 0;
 
-let completedToday =
-    localStorage.getItem("dailyGoalCompleted") === today;
+if(goalDone === today.toDateString()){
 
-let goalCount = completedToday ? 1 : 0;
+goalProgress = 1;
+
+}
 
 document.getElementById("dailyGoal").textContent =
-    goalCount + " / 2 Workouts";
+goalProgress + " / 2 Workouts";
 
 document.getElementById("goalText").textContent =
-    goalCount + " of 2 workouts completed today";
+goalProgress + " of 2 workouts completed today";
 
-let goalPercent = (goalCount / 2) * 100;
+setTimeout(()=>{
 
-setTimeout(function () {
-    document.getElementById("goalBar").style.width =
-        goalPercent + "%";
-}, 500);
-// ==============================
-// NOVAHUB DASHBOARD - PART 2
-// ==============================
+document.getElementById("goalBar").style.width =
+(goalProgress/2)*100 + "%";
+
+},500);
 
 
-// ---------- MOTIVATIONAL QUOTES ----------
+// ---------- WEEKLY CHART ----------
 
-const quotes = [
+const chart = document.getElementById("weeklyChart");
 
-    "💪 Success starts with showing up.",
+new Chart(chart,{
 
-    "🔥 Push yourself because no one else will.",
+type:"bar",
 
-    "🏆 Small progress is still progress.",
+data:{
 
-    "⚡ Discipline beats motivation.",
+labels:[
+"Mon",
+"Tue",
+"Wed",
+"Thu",
+"Fri",
+"Sat",
+"Sun"
+],
 
-    "🚀 Become stronger than yesterday.",
+datasets:[{
 
-    "❤️ Every workout counts."
+label:"Workouts",
 
-];
+data:[2,1,3,0,4,2,1],
 
-let randomQuote =
-quotes[Math.floor(Math.random() * quotes.length)];
+backgroundColor:"#00ff88",
 
-document.getElementById("quote").textContent =
-randomQuote;
+borderRadius:12
 
-document.getElementById("motivation").textContent =
-randomQuote;
+}]
 
+},
 
-// ---------- RECENT ACTIVITY ----------
+options:{
 
-let activity = document.getElementById("recentActivity");
+responsive:true,
 
-if(workouts === 0){
+plugins:{
 
-activity.innerHTML = `
-<p>🏋️ No workouts completed yet.</p>
-<p>Start your first workout today!</p>
-`;
+legend:{
+display:false
+}
 
-}else{
+},
 
-activity.innerHTML = `
-<p>✅ Last workout completed successfully.</p>
-<p>🏆 Total Workouts: ${workouts}</p>
-<p>⭐ Total XP: ${points}</p>
-`;
+scales:{
+
+y:{
+
+beginAtZero:true,
+
+ticks:{
+
+stepSize:1
 
 }
 
-
-
-// ---------- ACHIEVEMENTS ----------
-
-if(workouts >= 1){
-
-document.getElementById("badge1").classList.remove("locked");
-document.getElementById("badge1").classList.add("unlocked");
+}
 
 }
 
-if(workouts >= 10){
-
-document.getElementById("badge2").classList.remove("locked");
-document.getElementById("badge2").classList.add("unlocked");
-
 }
 
-if(workouts >= 50){
-
-document.getElementById("badge3").classList.remove("locked");
-document.getElementById("badge3").classList.add("unlocked");
-
-}
-
-if(streak >= 7){
-
-document.getElementById("badge4").classList.remove("locked");
-document.getElementById("badge4").classList.add("unlocked");
-
-}
-
-if(points >= 500){
-
-document.getElementById("badge5").classList.remove("locked");
-document.getElementById("badge5").classList.add("unlocked");
-
-}
-
-if(level >= 10){
-
-document.getElementById("badge6").classList.remove("locked");
-document.getElementById("badge6").classList.add("unlocked");
-
-}
-
-
-
-// ---------- NEXT GOAL ----------
-
-let nextGoal = document.getElementById("nextGoal");
-
-if(workouts < 1){
-
-nextGoal.textContent =
-"Complete your first workout to unlock 🥉 First Workout.";
-
-}
-else if(workouts < 10){
-
-nextGoal.textContent =
-"Complete " + (10 - workouts) + " more workouts to unlock 🥈 10 Workouts.";
-
-}
-else if(workouts < 50){
-
-nextGoal.textContent =
-"Complete " + (50 - workouts) + " more workouts to unlock 🥇 50 Workouts.";
-
-}
-else if(streak < 7){
-
-nextGoal.textContent =
-"Keep your streak going! " + (7 - streak) + " more days to unlock 🔥 7 Day Streak.";
-
-}
-else if(points < 500){
-
-nextGoal.textContent =
-"Earn " + (500 - points) + " more XP to unlock ⭐ XP Master.";
-
-}
-else{
-
-nextGoal.textContent =
-"🎉 Amazing! You've unlocked all current achievements!";
-
-}
-
-
-
-// ---------- LOGOUT ----------
-
-function logout(){
-
-localStorage.removeItem("loggedInUser");
-
-window.location.href = "login.html";
-
-}
+});
