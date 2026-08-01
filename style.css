@@ -1,180 +1,60 @@
-/* =====================
-   NOVAHUB WORKOUT GYM PAGE
-===================== */
+/* =========================
+   NOVAHUB V2 GLOBAL STYLE
+========================= */
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
 
-.workout-page {
+body {
 
+    background:#0b0b0b;
+    color:white;
     min-height:100vh;
-    padding:50px;
-
-    text-align:center;
-
-    background:
-    linear-gradient(
-        rgba(0,0,0,0.75),
-        rgba(0,0,0,0.75)
-    ),
-    url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48");
-
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
 
 }
 
 
+a {
 
-/* BACK BUTTON */
-
-.back-btn {
-
-    display:inline-block;
-
-    background:#00ff88;
-    color:black;
-
-    padding:12px 25px;
-
-    border-radius:10px;
-
-    font-weight:bold;
-
-    margin-bottom:30px;
+    text-decoration:none;
+    color:white;
 
 }
 
 
-
-/* TITLE */
-
-.workout-page h1 {
-
-    font-size:50px;
-    margin-bottom:15px;
-
-}
-
-
-.workout-page p {
-
-    color:#ddd;
-
-}
-
-
-
-
-
-/* SECTIONS */
-
-.exercise-section {
-
-    margin-top:60px;
-
-}
-
-
-.exercise-section h2 {
-
-    font-size:35px;
-
-    margin-bottom:30px;
-
-}
-
-
-
-
-/* 3 x 3 GRID */
-
-.exercise-grid {
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
-
-    max-width:1200px;
-
-    margin:auto;
-
-}
-
-
-
-
-
-/* WORKOUT CARDS */
-
-
-.exercise-card {
-
-    background:rgba(25,25,25,0.9);
-
-    padding:30px;
-
-    border-radius:20px;
-
-    border:1px solid rgba(255,255,255,0.15);
-
-    backdrop-filter:blur(8px);
-
-    transition:0.3s;
-
-}
-
-
-
-.exercise-card:hover {
-
-    transform:translateY(-10px);
-
-}
-
-
-
-
-/* STICKER PLACEHOLDER */
-
-
-.sticker {
-
-    font-size:60px;
-
-    margin-bottom:20px;
-
-}
-
-
-
-
-/* START BUTTON */
-
-
-.exercise-card button {
-
-    margin-top:20px;
-
-    padding:12px 30px;
-
-    background:#00ff88;
-
-    color:black;
+button {
 
     border:none;
-
-    border-radius:12px;
-
-    font-weight:bold;
-
     cursor:pointer;
+    font-weight:bold;
 
 }
 
 
-.exercise-card button:hover {
+
+/* =========================
+   BUTTON STYLE
+========================= */
+
+
+.btn,
+button {
+
+    background:#00ff88;
+    color:black;
+    padding:12px 25px;
+    border-radius:12px;
+
+}
+
+
+button:hover,
+.btn:hover {
 
     background:white;
 
@@ -184,9 +64,394 @@
 
 
 
-/* MOBILE */
+/* =========================
+   HOME PAGE
+========================= */
+
+
+.hero {
+
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:
+
+    linear-gradient(
+    rgba(0,0,0,.7),
+    rgba(0,0,0,.7)
+    ),
+
+    url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438");
+
+    background-size:cover;
+    background-position:center;
+
+}
+
+
+
+.hero h1 {
+
+    font-size:60px;
+
+}
+
+
+.hero p {
+
+    margin:20px;
+    color:#ddd;
+
+}
+
+
+
+
+
+/* =========================
+   LOGIN + SIGNUP
+========================= */
+
+
+.auth-page {
+
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+
+    linear-gradient(
+    rgba(0,0,0,.7),
+    rgba(0,0,0,.7)
+    ),
+
+    url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e");
+
+    background-size:cover;
+
+}
+
+
+
+.auth-box {
+
+    background:rgba(30,30,30,.9);
+
+    padding:40px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+}
+
+
+
+input {
+
+    width:300px;
+
+    padding:15px;
+
+    margin:10px;
+
+    border-radius:10px;
+
+    border:none;
+
+}
+
+
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+
+.dashboard {
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+
+
+.sidebar {
+
+    width:260px;
+
+    background:#151515;
+
+    padding:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+
+.sidebar a {
+
+    margin:15px 0;
+
+}
+
+
+
+.sidebar button {
+
+    margin-top:auto;
+
+}
+
+
+
+.content {
+
+    flex:1;
+
+    padding:40px;
+
+}
+
+
+
+
+.cards {
+
+    display:flex;
+
+    gap:25px;
+
+    margin-top:30px;
+
+}
+
+
+
+.card {
+
+    background:#222;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    width:220px;
+
+}
+
+
+
+
+
+/* =========================
+   WORKOUT PAGE
+========================= */
+
+
+.workout-page {
+
+
+    min-height:100vh;
+
+    padding:50px;
+
+    text-align:center;
+
+
+    background:
+
+    linear-gradient(
+    rgba(0,0,0,.75),
+    rgba(0,0,0,.75)
+    ),
+
+    url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48");
+
+
+    background-size:cover;
+
+    background-position:center;
+
+}
+
+
+
+
+.back-btn {
+
+    display:inline-block;
+
+    background:#00ff88;
+
+    color:black;
+
+    padding:12px 25px;
+
+    border-radius:10px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+
+
+.exercise-grid {
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+
+
+.exercise-card {
+
+    background:rgba(30,30,30,.9);
+
+    padding:30px;
+
+    border-radius:20px;
+
+}
+
+
+
+.sticker {
+
+    font-size:60px;
+
+}
+
+
+
+.exercise-card button {
+
+    margin-top:20px;
+
+}
+
+
+
+
+
+/* =========================
+   WORKOUT SESSION
+========================= */
+
+
+.session-page {
+
+
+    min-height:100vh;
+
+    padding:50px;
+
+    text-align:center;
+
+
+    background:
+
+    linear-gradient(
+    rgba(0,0,0,.7),
+    rgba(0,0,0,.7)
+    ),
+
+    url("https://images.unsplash.com/photo-1583454110551-21f2fa2afe61");
+
+
+    background-size:cover;
+
+    background-position:center;
+
+}
+
+
+
+.timer-box {
+
+    margin:40px auto;
+
+    background:#222;
+
+    padding:30px;
+
+    width:250px;
+
+    border-radius:20px;
+
+}
+
+
+#timer {
+
+    font-size:50px;
+
+    color:#00ff88;
+
+}
+
+
+
+
+.session-controls button {
+
+    margin:10px;
+
+}
+
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
 
 @media(max-width:900px){
+
+
+.dashboard {
+
+    flex-direction:column;
+
+}
+
+
+.sidebar {
+
+    width:100%;
+
+}
+
+
+.cards {
+
+    flex-direction:column;
+
+}
+
 
 
 .exercise-grid {
@@ -210,9 +475,9 @@
 }
 
 
-.workout-page h1 {
+input {
 
-    font-size:35px;
+    width:90%;
 
 }
 
