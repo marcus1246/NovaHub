@@ -8,6 +8,12 @@ let hasWorkedOut = false;
 
 
 
+let workoutPoints = 10; // default points
+
+
+
+
+
 function startTimer(){
 
 
@@ -42,11 +48,11 @@ function startTimer(){
 
         document.getElementById("timer").innerHTML =
 
-        (minutes < 10 ? "0" + minutes : minutes)
+        (minutes < 10 ? "0"+minutes : minutes)
         +
         ":"
         +
-        (secs < 10 ? "0" + secs : secs);
+        (secs < 10 ? "0"+secs : secs);
 
 
 
@@ -54,6 +60,7 @@ function startTimer(){
 
 
 }
+
 
 
 
@@ -80,6 +87,7 @@ function stopTimer(){
 
     running=false;
 
+
     document.getElementById("timer").innerHTML="00:00";
 
 }
@@ -103,103 +111,74 @@ function completeWorkout(){
 
 
 
-    // TOTAL WORKOUTS
 
-    let total = Number(localStorage.getItem("totalWorkouts")) || 0;
+// WORKOUT COUNT
 
-    total++;
-
-
-    localStorage.setItem(
-        "totalWorkouts",
-        total
-    );
+let workouts =
+Number(localStorage.getItem("totalWorkouts")) || 0;
 
 
+workouts++;
 
 
-
-    // STREAK SYSTEM
-
-
-    let today = new Date();
-
-
-    let todayDate = today.toDateString();
-
-
-
-    let lastWorkout = localStorage.getItem("lastWorkoutDate");
-
-
-
-    let streak = Number(localStorage.getItem("streak")) || 0;
-
-
-
-    if(lastWorkout){
-
-
-        let lastDate = new Date(lastWorkout);
-
-
-        let difference =
-        today - lastDate;
-
-
-
-        let days =
-        Math.floor(
-        difference / (1000*60*60*24)
-        );
-
-
-
-        if(days === 1){
-
-            streak++;
-
-        }
-
-
-        else if(days > 1){
-
-            streak = 1;
-
-        }
-
-
-
-    }else{
-
-
-        streak = 1;
-
-
-    }
+localStorage.setItem(
+"totalWorkouts",
+workouts
+);
 
 
 
 
-    localStorage.setItem(
-        "streak",
-        streak
-    );
 
 
 
-    localStorage.setItem(
-        "lastWorkoutDate",
-        todayDate
-    );
+// POINT SYSTEM
+
+
+let points =
+Number(localStorage.getItem("points")) || 0;
+
+
+points += workoutPoints;
 
 
 
-    alert("Workout Completed! 🔥 Streak: " + streak + " days");
+localStorage.setItem(
+"points",
+points
+);
 
 
 
-    window.location.href="dashboard.html";
+
+
+
+
+// DAILY GOAL
+
+let today =
+new Date().toDateString();
+
+
+localStorage.setItem(
+"dailyGoalCompleted",
+today
+);
+
+
+
+
+
+alert(
+"Workout Completed! 🏆 +" 
++ workoutPoints +
+" Points"
+);
+
+
+
+
+window.location.href="dashboard.html";
 
 
 }
