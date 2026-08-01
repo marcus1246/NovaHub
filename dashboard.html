@@ -16,12 +16,15 @@
 <div class="dashboard">
 
 
+<!-- SIDEBAR -->
+
 <aside class="sidebar">
 
 
 <h2>
 NovaHub 💪
 </h2>
+
 
 
 <a href="dashboard.html">
@@ -57,7 +60,13 @@ Logout
 
 
 
+
+
+<!-- MAIN AREA -->
+
+
 <main class="content">
+
 
 
 <h1>
@@ -65,10 +74,10 @@ Welcome back, <span id="username"></span> 🔥
 </h1>
 
 
-
 <p>
-Keep training and improve every day.
+Stay consistent. Build your strength.
 </p>
+
 
 
 
@@ -100,6 +109,8 @@ Completed
 
 
 
+
+
 <div class="card">
 
 <h2>
@@ -107,14 +118,21 @@ Completed
 </h2>
 
 <h3>
-Streak
+Workout Streak
 </h3>
 
 <p>
-0 Days
+<span id="streakCount">
+0
+</span>
+Days
 </p>
 
+
 </div>
+
+
+
 
 
 
@@ -122,22 +140,28 @@ Streak
 <div class="card">
 
 <h2>
-⚡
+🎯
 </h2>
 
 <h3>
-Calories
+Daily Goal
 </h3>
 
-<p>
-0 kcal
+<p id="dailyGoal">
+⏳ Not Completed
 </p>
 
+
+</div>
+
+
+
+
+
+
 </div>
 
 
-
-</div>
 
 
 
@@ -151,10 +175,17 @@ Today's Challenge 💪
 </h2>
 
 
+<br>
+
+
 <p>
-Push Ups<br>
-Squats<br>
-Burpees
+
+🔥 Push Ups - 20<br>
+
+🦵 Squats - 30<br>
+
+⚡ Burpees - 10
+
 </p>
 
 
@@ -162,12 +193,17 @@ Burpees
 <br>
 
 
+
 <a class="btn" href="workouts.html">
 Start Workout
 </a>
 
 
+
 </div>
+
+
+
 
 
 
