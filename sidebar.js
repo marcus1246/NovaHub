@@ -1,6 +1,9 @@
 // =================================
-// NOVAHUB AUTOMATIC SIDEBAR ACTIVE
+// NOVAHUB AUTO SIDEBAR ACTIVE
 // =================================
+
+
+document.addEventListener("DOMContentLoaded", () => {
 
 
 const currentPage =
@@ -8,26 +11,29 @@ window.location.pathname.split("/").pop();
 
 
 
-const sidebarLinks =
+const links =
 document.querySelectorAll(".sidebar a");
 
 
 
-sidebarLinks.forEach(link => {
+links.forEach(link => {
 
 
-    const linkPage =
-    link.getAttribute("href");
+const page =
+link.getAttribute("href");
 
 
 
-    if(linkPage === currentPage){
+if(page === currentPage){
 
 
-        link.classList.add("active");
+link.classList.add("active");
 
 
-    }
+}
+
+
+});
 
 
 });
