@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NovaHub Profile</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+
+
+
+<!-- SIDEBAR -->
+
+
+<aside class="sidebar">
+
+
+<h2>💪 NovaHub</h2>
+
+
+
+<nav>
+
+
+<a href="dashboard.html">
+🏠 Dashboard
+</a>
+
+
+
+<a href="workouts.html">
+🏋️ Workouts
+</a>
+
+
+
+<a href="progress.html">
+📈 Progress
+</a>
+
+
+
+<a href="profile.html">
+👤 Profile
+</a>
+
+
+
+</nav>
+
+
+
+<button onclick="logout()">
+
+🚪 Logout
+
+</button>
+
+
+
+</aside>
+
+
+
+
+
+
+
+
+<!-- PROFILE CONTENT -->
+
+
+<main class="content">
+
+
+
+<h1>
+👤 Profile
+</h1>
+
+
+<p>
+Your fitness identity.
+</p>
+
+
+
+
+
+
+
+
+<section class="card profile-card">
+
+
+
+<div class="profile-icon">
+
+💪
+
+</div>
+
+
+
+
+<h2 id="profileName">
+
+User
+
+</h2>
+
+
+
+<p>
+NovaHub Athlete
+</p>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="cards">
+
+
+
+<div class="card">
+
+<h2>🔥</h2>
+
+<h3>
+Workouts Completed
+</h3>
+
+
+<p id="profileWorkouts">
+
+0
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>⭐</h2>
+
+<h3>
+XP Earned
+</h3>
+
+
+<p id="profileXP">
+
+0
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>🏆</h2>
+
+<h3>
+Current Level
+</h3>
+
+
+<p id="profileLevel">
+
+1
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<h2>🔥</h2>
+
+<h3>
+Streak
+</h3>
+
+
+<p id="profileStreak">
+
+0 Days
+
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="card full-card">
+
+
+<h2>
+⚙️ Account
+</h2>
+
+
+<button onclick="logout()">
+
+Logout
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<script src="profile.js"></script>
+
+<script src="sidebar.js"></script>
+
+
+</body>
+
+</html>
