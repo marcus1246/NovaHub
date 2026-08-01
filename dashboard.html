@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NovaHub Dashboard</title>
@@ -22,7 +21,6 @@
 <div class="dashboard">
 
 
-<!-- SIDEBAR -->
 
 <aside class="sidebar">
 
@@ -33,7 +31,7 @@
 <nav>
 
 
-<a href="dashboard.html">
+<a href="dashboard.html" class="active">
 🏠 Dashboard
 </a>
 
@@ -67,8 +65,6 @@
 
 
 
-<!-- MAIN DASHBOARD -->
-
 
 <main class="content">
 
@@ -93,23 +89,21 @@ Stay consistent 💪
 
 
 
-<!-- STAT BOXES -->
 
 
-<section class="cards">
+<div class="cards">
 
 
 <div class="card">
 
 <h2>🔥</h2>
 
-<h3>Workouts</h3>
+<h3>Total Workouts</h3>
 
-<p id="workoutCount">
-0
-</p>
+<p id="workoutCount">0</p>
 
 </div>
+
 
 
 
@@ -119,9 +113,7 @@ Stay consistent 💪
 
 <h3>XP Points</h3>
 
-<p id="points">
-0
-</p>
+<p id="points">0</p>
 
 </div>
 
@@ -135,13 +127,11 @@ Stay consistent 💪
 <h3>Streak</h3>
 
 <p>
-<span id="streakCount">
-0
-</span>
-Days
+<span id="streakCount">0</span> Days
 </p>
 
 </div>
+
 
 
 
@@ -158,15 +148,12 @@ Days
 </div>
 
 
-</section>
+</div>
 
 
 
 
 
-
-
-<!-- LEVEL -->
 
 
 <section class="card full-card">
@@ -179,11 +166,7 @@ Days
 
 <div class="progress-container">
 
-<div 
-id="xpBar"
-class="progress-fill">
-
-</div>
+<div id="xpBar" class="progress-fill"></div>
 
 </div>
 
@@ -201,49 +184,6 @@ Level 1
 
 
 
-
-<!-- DAILY GOAL -->
-
-
-<section class="card full-card">
-
-
-<h2>
-🎯 Daily Goal Progress
-</h2>
-
-
-<div class="progress-container">
-
-
-<div
-id="goalBar"
-class="progress-fill">
-
-</div>
-
-
-</div>
-
-
-<p id="goalText">
-
-Complete 2 workouts today
-
-</p>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- CHART -->
-
-
 <section class="card full-card">
 
 
@@ -252,7 +192,19 @@ Complete 2 workouts today
 </h2>
 
 
+
+<div class="chart-container">
+
+
+<p id="chartLoading">
+Loading workout data... 📊
+</p>
+
+
 <canvas id="weeklyChart"></canvas>
+
+
+</div>
 
 
 </section>
@@ -261,10 +213,6 @@ Complete 2 workouts today
 
 
 
-
-
-
-<!-- ACHIEVEMENTS -->
 
 
 <section class="card full-card">
@@ -279,85 +227,40 @@ Complete 2 workouts today
 <div class="achievement-grid">
 
 
-
 <div class="badge locked" id="badge1">
-
 🥉
-
-<span>
-First Workout
-</span>
-
+<span>First Workout</span>
 </div>
-
-
 
 
 <div class="badge locked" id="badge2">
-
 🥈
-
-<span>
-10 Workouts
-</span>
-
+<span>10 Workouts</span>
 </div>
-
-
-
 
 
 <div class="badge locked" id="badge3">
-
 🥇
-
-<span>
-50 Workouts
-</span>
-
+<span>50 Workouts</span>
 </div>
-
-
-
 
 
 <div class="badge locked" id="badge4">
-
 🔥
-
-<span>
-7 Day Streak
-</span>
-
+<span>7 Day Streak</span>
 </div>
-
-
-
 
 
 <div class="badge locked" id="badge5">
-
 ⭐
-
-<span>
-500 XP
-</span>
-
+<span>500 XP</span>
 </div>
-
-
 
 
 <div class="badge locked" id="badge6">
-
 👑
-
-<span>
-Level 10
-</span>
-
+<span>Level 10</span>
 </div>
-
 
 
 </div>
@@ -369,10 +272,6 @@ Level 10
 
 
 
-
-
-
-<!-- RECENT ACTIVITY -->
 
 
 <section class="card full-card">
@@ -398,33 +297,11 @@ No workouts yet.
 
 
 
-<section class="card full-card">
-
-
-<h2>
-🎯 Next Goal
-</h2>
-
-
-<p id="nextGoal">
-
-Complete your first workout
-
-</p>
-
-
-</section>
-
-
-
-
-
-
-
 </main>
 
 
 </div>
+
 
 
 
