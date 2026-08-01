@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NovaHub Dashboard</title>
@@ -14,46 +15,72 @@
 
 </head>
 
+
 <body>
+
 
 <div class="dashboard">
 
-<!-- ================= SIDEBAR ================= -->
 
 <aside class="sidebar">
 
+
 <h2>💪 NovaHub</h2>
 
-<a href="dashboard.html">🏠 Dashboard</a>
 
-<a href="workouts.html">🏋️ Workouts</a>
+<a href="dashboard.html" class="active">
+🏠 Dashboard
+</a>
 
-<a href="progress.html">📈 Progress</a>
 
-<a href="profile.html">👤 Profile</a>
+<a href="workouts.html">
+🏋️ Workouts
+</a>
 
-<button onclick="logout()">Logout</button>
+
+<a href="progress.html">
+📈 Progress
+</a>
+
+
+<a href="profile.html">
+👤 Profile
+</a>
+
+
+<button onclick="logout()">
+Logout
+</button>
+
 
 </aside>
 
-<!-- ================= MAIN ================= -->
+
+
+
 
 <main class="content">
+
 
 <h1>
 Welcome back,
 <span id="username"></span> 👋
 </h1>
 
+
 <p id="currentDate"></p>
 
+
 <p id="quote">
-Every workout makes you stronger.
+Stay consistent 💪
 </p>
 
-<!-- ================= QUICK STATS ================= -->
+
+
+
 
 <div class="cards">
+
 
 <div class="card">
 
@@ -61,41 +88,44 @@ Every workout makes you stronger.
 
 <h3>Total Workouts</h3>
 
-<p>
-
-<span id="workoutCount">0</span>
-
-</p>
+<p id="workoutCount">0</p>
 
 </div>
+
+
+
 
 <div class="card">
 
 <h2>🔥</h2>
 
-<h3>Current Streak</h3>
+<h3>Streak</h3>
 
 <p>
-
 <span id="streakCount">0</span> Days
-
 </p>
 
 </div>
+
+
+
+
 
 <div class="card">
 
 <h2>⭐</h2>
 
-<h3>Total XP</h3>
+<h3>XP</h3>
 
 <p>
-
-<span id="points">0</span> XP
-
+<span id="points">0</span>
 </p>
 
 </div>
+
+
+
+
 
 <div class="card">
 
@@ -104,20 +134,24 @@ Every workout makes you stronger.
 <h3>Daily Goal</h3>
 
 <p id="dailyGoal">
-
-0 / 2 Workouts
-
+0 / 2
 </p>
 
 </div>
 
+
 </div>
 
-<!-- ================= XP ================= -->
+
+
+
+
 
 <div class="card full-card">
 
-<h2>⭐ XP Progress</h2>
+
+<h2>⭐ Level Progress</h2>
+
 
 <div class="progress-container">
 
@@ -125,19 +159,24 @@ Every workout makes you stronger.
 
 </div>
 
+
 <p id="levelText">
-
-Level 1 • 0 / 100 XP
-
+Level 1
 </p>
+
 
 </div>
 
-<!-- ================= DAILY GOAL ================= -->
+
+
+
+
 
 <div class="card full-card">
 
-<h2>🎯 Daily Goal Progress</h2>
+
+<h2>🎯 Daily Goal</h2>
+
 
 <div class="progress-container">
 
@@ -145,140 +184,175 @@ Level 1 • 0 / 100 XP
 
 </div>
 
+
 <p id="goalText">
 
-Complete 2 workouts today
+Complete your daily workouts
 
 </p>
 
+
 </div>
 
-<!-- ================= WEEKLY CHART ================= -->
+
+
+
+
+
 
 <div class="card full-card">
+
 
 <h2>📊 Weekly Activity</h2>
 
+
 <canvas id="weeklyChart"></canvas>
 
+
 </div>
-<!-- ================= RECENT ACTIVITY ================= -->
+
+
+
+
+
+
 
 <div class="card full-card">
+
 
 <h2>⚡ Recent Activity</h2>
 
+
 <div id="recentActivity">
 
-<p>🏋️ No workouts completed yet.</p>
-
-<p>Your latest workouts will appear here.</p>
-
-</div>
+No workouts yet.
 
 </div>
 
 
+</div>
 
-<!-- ================= ACHIEVEMENTS ================= -->
+
+
+
+
+
 
 <div class="card full-card">
 
+
 <h2>🏅 Achievements</h2>
 
+
 <div class="achievement-grid">
+
 
 <div class="badge locked" id="badge1">
 🥉
 <span>First Workout</span>
 </div>
 
+
 <div class="badge locked" id="badge2">
 🥈
 <span>10 Workouts</span>
 </div>
+
 
 <div class="badge locked" id="badge3">
 🥇
 <span>50 Workouts</span>
 </div>
 
+
 <div class="badge locked" id="badge4">
 🔥
 <span>7 Day Streak</span>
 </div>
+
 
 <div class="badge locked" id="badge5">
 ⭐
 <span>500 XP</span>
 </div>
 
+
 <div class="badge locked" id="badge6">
 👑
 <span>Level 10</span>
 </div>
 
-</div>
 
 </div>
 
 
+</div>
 
-<!-- ================= NEXT GOAL ================= -->
+
+
+
+
+
 
 <div class="card full-card">
+
 
 <h2>🎖️ Next Goal</h2>
 
+
 <p id="nextGoal">
 
-Complete your first workout to unlock your first achievement.
+Complete your first workout
 
 </p>
+
 
 </div>
 
 
 
-<!-- ================= MOTIVATION ================= -->
+
+
+
 
 <div class="card full-card">
 
-<h2>💬 Daily Motivation</h2>
+
+<h2>💬 Motivation</h2>
+
 
 <p id="motivation">
 
-Success starts with showing up.
+Keep going!
 
 </p>
+
 
 </div>
 
 
 
-<!-- ================= FOOTER ================= -->
+
 
 <footer class="dashboard-footer">
 
-<p>
-
 NovaHub © 2026
-
-</p>
-
-<p>
-
-Train • Improve • Repeat 💪
-
-</p>
 
 </footer>
 
+
+
 </main>
+
 
 </div>
 
+
+
+
+
 <script src="dashboard.js"></script>
+
 
 </body>
 
