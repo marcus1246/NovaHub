@@ -239,3 +239,40 @@ grid-template-columns:1fr;
 }
 
 }
+.session {
+
+text-align:center;
+padding:50px;
+
+}
+
+
+.session-controls button {
+
+margin:10px;
+padding:15px 30px;
+border:none;
+border-radius:10px;
+background:#00ff88;
+font-weight:bold;
+cursor:pointer;
+
+}
+
+
+.back-btn {
+
+display:inline-block;
+margin-bottom:30px;
+
+}
+
+
+.current-workout {
+
+background:#222;
+padding:30px;
+border-radius:15px;
+margin-top:40px;
+
+}
