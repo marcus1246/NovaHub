@@ -1,39 +1,51 @@
 // =================================
-// NOVAHUB SIDEBAR ACTIVE SYSTEM
+// NOVAHUB AUTOMATIC ACTIVE SIDEBAR
 // =================================
 
 
-window.addEventListener("load", function(){
-
-
-    let currentPage = 
-    window.location.pathname.split("/").pop();
+document.addEventListener("DOMContentLoaded", function(){
 
 
 
-    let sidebarLinks =
-    document.querySelectorAll(".sidebar a");
+let currentPage = 
+window.location.pathname.split("/").pop();
 
 
 
-    sidebarLinks.forEach(function(link){
+// If empty, default to dashboard
+
+if(currentPage === ""){
+
+    currentPage = "dashboard.html";
+
+}
 
 
-        let linkPage =
-        link.getAttribute("href");
+
+let links = 
+document.querySelectorAll(".sidebar a");
 
 
 
-        if(linkPage === currentPage){
+links.forEach(function(link){
 
 
-            link.classList.add("active");
+let page =
+link.getAttribute("href");
 
 
-        }
+
+if(page === currentPage){
 
 
-    });
+link.classList.add("active");
+
+
+}
+
+
+});
+
 
 
 });
