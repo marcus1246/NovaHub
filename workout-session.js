@@ -59,12 +59,11 @@ function startTimer(){
 
 
 
-
 function pauseTimer(){
 
     clearInterval(timer);
 
-    running = false;
+    running=false;
 
 }
 
@@ -77,14 +76,14 @@ function stopTimer(){
 
     clearInterval(timer);
 
-    seconds = 0;
+    seconds=0;
 
-    running = false;
-
+    running=false;
 
     document.getElementById("timer").innerHTML="00:00";
 
 }
+
 
 
 
@@ -96,7 +95,7 @@ function completeWorkout(){
 
     if(!hasWorkedOut){
 
-        alert("You need to start the workout first 💪");
+        alert("Start the workout first 💪");
 
         return;
 
@@ -104,20 +103,11 @@ function completeWorkout(){
 
 
 
-    let total = localStorage.getItem("totalWorkouts");
+    // TOTAL WORKOUTS
 
-
-
-    if(total === null){
-
-        total = 0;
-
-    }
-
-
+    let total = Number(localStorage.getItem("totalWorkouts")) || 0;
 
     total++;
-
 
 
     localStorage.setItem(
@@ -127,7 +117,85 @@ function completeWorkout(){
 
 
 
-    alert("Workout Completed! 🏆🔥");
+
+
+    // STREAK SYSTEM
+
+
+    let today = new Date();
+
+
+    let todayDate = today.toDateString();
+
+
+
+    let lastWorkout = localStorage.getItem("lastWorkoutDate");
+
+
+
+    let streak = Number(localStorage.getItem("streak")) || 0;
+
+
+
+    if(lastWorkout){
+
+
+        let lastDate = new Date(lastWorkout);
+
+
+        let difference =
+        today - lastDate;
+
+
+
+        let days =
+        Math.floor(
+        difference / (1000*60*60*24)
+        );
+
+
+
+        if(days === 1){
+
+            streak++;
+
+        }
+
+
+        else if(days > 1){
+
+            streak = 1;
+
+        }
+
+
+
+    }else{
+
+
+        streak = 1;
+
+
+    }
+
+
+
+
+    localStorage.setItem(
+        "streak",
+        streak
+    );
+
+
+
+    localStorage.setItem(
+        "lastWorkoutDate",
+        todayDate
+    );
+
+
+
+    alert("Workout Completed! 🔥 Streak: " + streak + " days");
 
 
 
