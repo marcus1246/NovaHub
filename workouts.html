@@ -21,53 +21,37 @@
 
 
 
-<!-- SIDEBAR -->
-
 <aside class="sidebar">
 
 
 <h2>💪 NovaHub</h2>
 
 
-
 <nav>
-
 
 <a href="dashboard.html">
 🏠 Dashboard
 </a>
 
-
-
 <a href="workouts.html">
 🏋️ Workouts
 </a>
 
-
-
 <a href="progress.html">
 📈 Progress
 </a>
-
-
 
 <a href="profile.html">
 👤 Profile
 </a>
 
 
-
 </nav>
 
 
-
-
 <button onclick="logout()">
-
 🚪 Logout
-
 </button>
-
 
 
 </aside>
@@ -78,10 +62,8 @@
 
 
 
-<!-- WORKOUT CONTENT -->
 
 <main class="content">
-
 
 
 <h1>
@@ -90,7 +72,7 @@
 
 
 <p>
-Choose a workout and earn XP.
+Choose your workout style.
 </p>
 
 
@@ -98,217 +80,31 @@ Choose a workout and earn XP.
 
 
 
-<div class="card">
+
+<!-- MEN -->
+
+
+<section class="workout-section">
 
 
 <h2>
-🔎 Search
+👨 Men's Workouts
 </h2>
 
 
-<input 
-id="searchWorkout"
-type="text"
-placeholder="Search workouts..."
->
-
-
-</div>
+<div class="workout-grid">
 
 
 
-
-
-
-
-<div class="card">
-
-
-<h2>
-🎯 Difficulty
-</h2>
-
-
-
-<button onclick="filterWorkout('all')">
-All
-</button>
-
-
-<button onclick="filterWorkout('Beginner')">
-Beginner
-</button>
-
-
-<button onclick="filterWorkout('Intermediate')">
-Intermediate
-</button>
-
-
-<button onclick="filterWorkout('Advanced')">
-Advanced
-</button>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="workout-grid" id="workoutContainer">
-
-
-
-
-
-
-<div class="workout-card" data-level="Beginner">
-
-
-<img src="https://media.giphy.com/media/zcMcG2D8Z4qT6/giphy.gif">
-
+<div class="workout-card">
 
 <h3>
-Push Ups
+💪 Muscle Builder
 </h3>
 
 
 <p>
-💪 Upper Body
-</p>
-
-
-<p>
-🟢 Beginner
-</p>
-
-
-<p>
-⭐ +10 XP
-</p>
-
-
-<a class="btn" href="workout-session.html?workout=pushups">
-
-Start Workout
-
-</a>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="workout-card" data-level="Beginner">
-
-
-<img src="https://media.giphy.com/media/aclHk1t8aYq3C/giphy.gif">
-
-
-<h3>
-Squats
-</h3>
-
-
-<p>
-🦵 Legs
-</p>
-
-
-<p>
-🟢 Beginner
-</p>
-
-
-<p>
-⭐ +10 XP
-</p>
-
-
-<a class="btn" href="workout-session.html?workout=squats">
-
-Start Workout
-
-</a>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="workout-card" data-level="Intermediate">
-
-
-<img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
-
-
-<h3>
-Lunges
-</h3>
-
-
-<p>
-🦵 Legs
-</p>
-
-
-<p>
-🟡 Intermediate
-</p>
-
-
-<p>
-⭐ +20 XP
-</p>
-
-
-<a class="btn" href="workout-session.html?workout=lunges">
-
-Start Workout
-
-</a>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="workout-card" data-level="Advanced">
-
-
-<img src="https://media.giphy.com/media/5cZ8Rr6rXcL0c/giphy.gif">
-
-
-<h3>
-Pull Ups
-</h3>
-
-
-<p>
-💪 Back
-</p>
-
-
-<p>
-🔴 Advanced
+Chest • Arms • Back
 </p>
 
 
@@ -330,35 +126,167 @@ Start Workout
 
 
 
-
-
-<div class="workout-card" data-level="Advanced">
-
-
-<img src="https://media.giphy.com/media/26BRqR8g6J8K9d6rK/giphy.gif">
-
+<div class="workout-card">
 
 <h3>
-Burpees
+🔥 Strength Training
 </h3>
 
 
 <p>
-🔥 Full Body
+Full Body
 </p>
 
 
 <p>
-🔴 Advanced
-</p>
-
-
-<p>
-⭐ +30 XP
+⭐ +40 XP
 </p>
 
 
 <a class="btn" href="workout-session.html?workout=burpees">
+
+Start Workout
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- WOMEN -->
+
+
+<section class="workout-section">
+
+
+<h2>
+👩 Women's Workouts
+</h2>
+
+
+<div class="workout-grid">
+
+
+
+<div class="workout-card">
+
+
+<h3>
+🍑 Lower Body
+</h3>
+
+
+<p>
+Legs • Glutes
+</p>
+
+
+<p>
+⭐ +20 XP
+</p>
+
+
+<a class="btn" href="workout-session.html?workout=squats">
+
+Start Workout
+
+</a>
+
+
+</div>
+
+
+
+
+
+<div class="workout-card">
+
+
+<h3>
+🧘 Flexibility
+</h3>
+
+
+<p>
+Stretch • Mobility
+</p>
+
+
+<p>
+⭐ +15 XP
+</p>
+
+
+<a class="btn" href="workout-session.html?workout=yoga">
+
+Start Workout
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- BOTH -->
+
+
+<section class="workout-section">
+
+
+<h2>
+🧍 Everyone's Workouts
+</h2>
+
+
+<div class="workout-grid">
+
+
+
+<div class="workout-card">
+
+
+<h3>
+🔥 Cardio
+</h3>
+
+
+<p>
+Jumping Jacks
+</p>
+
+
+<p>
+⭐ +10 XP
+</p>
+
+
+<a class="btn" href="workout-session.html?workout=jumping">
 
 Start Workout
 
@@ -373,8 +301,39 @@ Start Workout
 
 
 
+<div class="workout-card">
+
+
+<h3>
+🏃 Full Body
+</h3>
+
+
+<p>
+Push Ups + Squats
+</p>
+
+
+<p>
+⭐ +25 XP
+</p>
+
+
+<a class="btn" href="workout-session.html?workout=pushups">
+
+Start Workout
+
+</a>
+
+
 </div>
 
+
+
+</div>
+
+
+</section>
 
 
 
@@ -390,9 +349,10 @@ Start Workout
 
 
 
-<script src="workouts.js"></script>
 
 <script src="sidebar.js"></script>
+
+<script src="workouts.js"></script>
 
 
 </body>
