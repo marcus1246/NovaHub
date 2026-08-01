@@ -1,123 +1,191 @@
 // =================================
-// NOVAHUB WORKOUT FILTER SYSTEM
+// NOVAHUB WORKOUT SESSION SYSTEM
 // =================================
 
 
 
-const searchInput =
-document.getElementById("searchWorkout");
+let seconds = 0;
 
+let timer = null;
 
-const workoutCards =
-document.querySelectorAll(".workout-card");
-
-
+let running = false;
 
 
 
-// SEARCH FUNCTION
-
-
-if(searchInput){
-
-
-searchInput.addEventListener(
-"input",
-function(){
-
-
-let search =
-this.value.toLowerCase();
 
 
 
-workoutCards.forEach(card=>{
+function startWorkout(){
 
 
-let name =
-card.querySelector("h3")
-.textContent
-.toLowerCase();
+if(running){
 
-
-
-if(name.includes(search)){
-
-
-card.style.display="block";
-
-
-}
-
-else{
-
-
-card.style.display="none";
-
+return;
 
 }
 
 
-
-});
-
-
-});
-
-
-}
+running = true;
 
 
 
+timer = setInterval(function(){
+
+
+seconds++;
 
 
 
-
-
-// FILTER FUNCTION
-
-
-function filterWorkout(level){
+let minutes =
+Math.floor(seconds / 60);
 
 
 
-workoutCards.forEach(card=>{
-
-
-let difficulty =
-card.dataset.level;
+let secs =
+seconds % 60;
 
 
 
-if(level==="all"){
+document.getElementById("timer").textContent =
+
+(minutes < 10 ? "0" : "")
++
+minutes
++
+":"
++
+(secs < 10 ? "0" : "")
++
+secs;
 
 
-card.style.display="block";
 
+},1000);
 
-}
-
-
-else if(difficulty===level){
-
-
-card.style.display="block";
-
-
-}
-
-
-else{
-
-
-card.style.display="none";
 
 
 }
 
 
 
-});
+
+
+
+
+function pauseWorkout(){
+
+
+clearInterval(timer);
+
+
+running = false;
+
+
+
+}
+
+
+
+
+
+
+
+function stopWorkout(){
+
+
+clearInterval(timer);
+
+
+running = false;
+
+
+seconds = 0;
+
+
+
+document.getElementById("timer").textContent =
+"00:00";
+
+
+
+}
+
+
+
+
+
+
+
+
+function completeWorkout(){
+
+
+
+if(seconds < 10){
+
+
+alert("Complete at least 10 seconds first 💪");
+
+
+return;
+
+
+}
+
+
+
+
+let total =
+
+Number(localStorage.getItem("totalWorkouts"))
+||
+0;
+
+
+
+localStorage.setItem(
+
+"totalWorkouts",
+
+total + 1
+
+);
+
+
+
+
+
+
+let points =
+
+Number(localStorage.getItem("points"))
+||
+0;
+
+
+
+points += 10;
+
+
+
+localStorage.setItem(
+
+"points",
+
+points
+
+);
+
+
+
+
+
+alert("Workout Completed! 🔥 +10 XP");
+
+
+
+window.location.href="dashboard.html";
+
 
 
 }
