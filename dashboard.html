@@ -22,13 +22,18 @@
 <div class="dashboard">
 
 
+<!-- SIDEBAR -->
+
 <aside class="sidebar">
 
 
 <h2>💪 NovaHub</h2>
 
 
-<a href="dashboard.html" class="active">
+<nav>
+
+
+<a href="dashboard.html">
 🏠 Dashboard
 </a>
 
@@ -48,8 +53,11 @@
 </a>
 
 
+</nav>
+
+
 <button onclick="logout()">
-Logout
+🚪 Logout
 </button>
 
 
@@ -59,12 +67,18 @@ Logout
 
 
 
+<!-- MAIN DASHBOARD -->
+
+
 <main class="content">
 
 
 <h1>
 Welcome back,
-<span id="username"></span> 👋
+<span id="username">
+User
+</span>
+👋
 </h1>
 
 
@@ -79,16 +93,35 @@ Stay consistent 💪
 
 
 
-<div class="cards">
+<!-- STAT BOXES -->
+
+
+<section class="cards">
 
 
 <div class="card">
 
-<h2>🏆</h2>
+<h2>🔥</h2>
 
-<h3>Total Workouts</h3>
+<h3>Workouts</h3>
 
-<p id="workoutCount">0</p>
+<p id="workoutCount">
+0
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>⭐</h2>
+
+<h3>XP Points</h3>
+
+<p id="points">
+0
+</p>
 
 </div>
 
@@ -102,28 +135,13 @@ Stay consistent 💪
 <h3>Streak</h3>
 
 <p>
-<span id="streakCount">0</span> Days
+<span id="streakCount">
+0
+</span>
+Days
 </p>
 
 </div>
-
-
-
-
-
-<div class="card">
-
-<h2>⭐</h2>
-
-<h3>XP</h3>
-
-<p>
-<span id="points">0</span>
-</p>
-
-</div>
-
-
 
 
 
@@ -140,22 +158,32 @@ Stay consistent 💪
 </div>
 
 
-</div>
+</section>
 
 
 
 
 
 
-<div class="card full-card">
+
+<!-- LEVEL -->
 
 
-<h2>⭐ Level Progress</h2>
+<section class="card full-card">
+
+
+<h2>
+⭐ Level Progress
+</h2>
 
 
 <div class="progress-container">
 
-<div id="xpBar" class="progress-fill"></div>
+<div 
+id="xpBar"
+class="progress-fill">
+
+</div>
 
 </div>
 
@@ -165,34 +193,47 @@ Level 1
 </p>
 
 
-</div>
+</section>
 
 
 
 
 
 
-<div class="card full-card">
 
 
-<h2>🎯 Daily Goal</h2>
+<!-- DAILY GOAL -->
+
+
+<section class="card full-card">
+
+
+<h2>
+🎯 Daily Goal Progress
+</h2>
 
 
 <div class="progress-container">
 
-<div id="goalBar" class="progress-fill"></div>
+
+<div
+id="goalBar"
+class="progress-fill">
+
+</div>
+
 
 </div>
 
 
 <p id="goalText">
 
-Complete your daily workouts
+Complete 2 workouts today
 
 </p>
 
 
-</div>
+</section>
 
 
 
@@ -200,27 +241,146 @@ Complete your daily workouts
 
 
 
-<div class="card full-card">
+<!-- CHART -->
 
 
-<h2>📊 Weekly Activity</h2>
+<section class="card full-card">
+
+
+<h2>
+📊 Weekly Activity
+</h2>
 
 
 <canvas id="weeklyChart"></canvas>
 
 
+</section>
+
+
+
+
+
+
+
+
+<!-- ACHIEVEMENTS -->
+
+
+<section class="card full-card">
+
+
+<h2>
+🏆 Achievements
+</h2>
+
+
+
+<div class="achievement-grid">
+
+
+
+<div class="badge locked" id="badge1">
+
+🥉
+
+<span>
+First Workout
+</span>
+
+</div>
+
+
+
+
+<div class="badge locked" id="badge2">
+
+🥈
+
+<span>
+10 Workouts
+</span>
+
 </div>
 
 
 
 
 
+<div class="badge locked" id="badge3">
+
+🥇
+
+<span>
+50 Workouts
+</span>
+
+</div>
 
 
-<div class="card full-card">
 
 
-<h2>⚡ Recent Activity</h2>
+
+<div class="badge locked" id="badge4">
+
+🔥
+
+<span>
+7 Day Streak
+</span>
+
+</div>
+
+
+
+
+
+<div class="badge locked" id="badge5">
+
+⭐
+
+<span>
+500 XP
+</span>
+
+</div>
+
+
+
+
+<div class="badge locked" id="badge6">
+
+👑
+
+<span>
+Level 10
+</span>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- RECENT ACTIVITY -->
+
+
+<section class="card full-card">
+
+
+<h2>
+📜 Recent Activity
+</h2>
 
 
 <div id="recentActivity">
@@ -230,7 +390,7 @@ No workouts yet.
 </div>
 
 
-</div>
+</section>
 
 
 
@@ -238,66 +398,12 @@ No workouts yet.
 
 
 
-<div class="card full-card">
+<section class="card full-card">
 
 
-<h2>🏅 Achievements</h2>
-
-
-<div class="achievement-grid">
-
-
-<div class="badge locked" id="badge1">
-🥉
-<span>First Workout</span>
-</div>
-
-
-<div class="badge locked" id="badge2">
-🥈
-<span>10 Workouts</span>
-</div>
-
-
-<div class="badge locked" id="badge3">
-🥇
-<span>50 Workouts</span>
-</div>
-
-
-<div class="badge locked" id="badge4">
-🔥
-<span>7 Day Streak</span>
-</div>
-
-
-<div class="badge locked" id="badge5">
-⭐
-<span>500 XP</span>
-</div>
-
-
-<div class="badge locked" id="badge6">
-👑
-<span>Level 10</span>
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card full-card">
-
-
-<h2>🎖️ Next Goal</h2>
+<h2>
+🎯 Next Goal
+</h2>
 
 
 <p id="nextGoal">
@@ -307,38 +413,11 @@ Complete your first workout
 </p>
 
 
-</div>
+</section>
 
 
 
 
-
-
-
-<div class="card full-card">
-
-
-<h2>💬 Motivation</h2>
-
-
-<p id="motivation">
-
-Keep going!
-
-</p>
-
-
-</div>
-
-
-
-
-
-<footer class="dashboard-footer">
-
-NovaHub © 2026
-
-</footer>
 
 
 
@@ -350,8 +429,9 @@ NovaHub © 2026
 
 
 
-
 <script src="dashboard.js"></script>
+
+<script src="sidebar.js"></script>
 
 
 </body>
