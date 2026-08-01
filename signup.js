@@ -1,18 +1,49 @@
+// =================================
+// NOVAHUB SIGNUP SYSTEM
+// =================================
+
+
+
 function signup(){
 
 
-let username = document.getElementById("username").value;
 
-let email = document.getElementById("email").value;
+let username =
 
-let password = document.getElementById("password").value;
-
+document.getElementById("username").value;
 
 
-if(username === "" || email === "" || password === ""){
+
+let email =
+
+document.getElementById("email").value;
 
 
-alert("Please fill in all fields");
+
+let password =
+
+document.getElementById("password").value;
+
+
+
+let gender =
+
+document.getElementById("gender").value;
+
+
+
+
+
+
+if(
+username === "" ||
+email === "" ||
+password === ""
+){
+
+
+alert("Fill in all fields");
+
 
 return;
 
@@ -21,32 +52,49 @@ return;
 
 
 
-let user = {
-
-
-username: username,
-
-email: email,
-
-password: password
-
-
-};
 
 
 
 localStorage.setItem(
-"user",
-JSON.stringify(user)
+"loggedInUser",
+username
 );
 
 
 
-alert("Account created successfully!");
+
+localStorage.setItem(
+"userEmail",
+email
+);
 
 
 
-window.location.href="login.html";
+localStorage.setItem(
+"userGender",
+gender
+);
+
+
+
+
+localStorage.setItem(
+"password",
+password
+);
+
+
+
+
+
+
+
+alert("Account Created 🔥");
+
+
+
+window.location.href="dashboard.html";
+
 
 
 }
