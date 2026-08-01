@@ -8,29 +8,72 @@
 
 <body>
 
-    <h1>NovaHub Dashboard 💪</h1>
+<div class="dashboard">
 
-    <h2>Welcome, <span id="username"></span>!</h2>
+    <aside class="sidebar">
 
-    <p>Your fitness journey starts here.</p>
+        <h2>NovaHub 💪</h2>
 
+        <a href="#">Dashboard</a>
+        <a href="#">Workouts</a>
+        <a href="#">Progress</a>
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
 
-    <div>
-        <h3>🔥 Today's Workout</h3>
-        <p>Push-ups, Squats, Running</p>
-    </div>
+        <button onclick="logout()">Logout</button>
 
-
-    <div>
-        <h3>📊 Progress</h3>
-        <p>Track your workouts and improvements.</p>
-    </div>
+    </aside>
 
 
-    <button onclick="logout()">Logout</button>
+
+    <main class="content">
+
+        <h1>Welcome, <span id="username"></span> 👋</h1>
+
+        <p>Ready to crush your goals today?</p>
 
 
-    <script src="dashboard.js"></script>
+        <div class="cards">
+
+            <div class="card">
+                <h3>🔥 Workout Streak</h3>
+                <h2>12 Days</h2>
+            </div>
+
+
+            <div class="card">
+                <h3>🏋️ Workouts</h3>
+                <h2>24</h2>
+            </div>
+
+
+            <div class="card">
+                <h3>⚡ Calories</h3>
+                <h2>15,200</h2>
+            </div>
+
+        </div>
+
+
+
+        <div class="workout">
+
+            <h2>Today's Workout</h2>
+
+            <p>💪 Push Ups - 3 sets x 15</p>
+            <p>🦵 Squats - 3 sets x 20</p>
+            <p>🏃 Running - 20 minutes</p>
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+<script src="dashboard.js"></script>
 
 </body>
 
