@@ -366,3 +366,206 @@ canvas{
     color:#00ff88;
 
 }
+/* =========================
+   BUTTONS
+========================= */
+
+button,
+.btn{
+
+    background:linear-gradient(135deg,#00ff88,#00c853);
+
+    color:#111;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:12px 20px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:all .3s ease;
+
+    text-decoration:none;
+
+    display:inline-block;
+
+}
+
+button:hover,
+.btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(0,255,136,.35);
+
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#00ff88;
+
+    border-radius:10px;
+
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.content{
+
+    animation:fadeIn .8s ease;
+
+}
+
+.card{
+
+    animation:fadeIn .8s ease;
+
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.dashboard-footer{
+
+    margin-top:40px;
+
+    padding:20px;
+
+    text-align:center;
+
+    color:#aaa;
+
+    border-top:1px solid rgba(255,255,255,.1);
+
+}
+
+.dashboard-footer p{
+
+    margin:5px 0;
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .dashboard{
+
+        flex-direction:column;
+
+    }
+
+    .sidebar{
+
+        width:100%;
+
+        flex-direction:row;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:10px;
+
+    }
+
+    .sidebar h2{
+
+        width:100%;
+
+    }
+
+    .sidebar button{
+
+        margin-top:10px;
+
+    }
+
+    .content{
+
+        padding:20px;
+
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .achievement-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    .content h1{
+
+        font-size:28px;
+
+    }
+
+    .badge{
+
+        font-size:26px;
+
+    }
+
+    .achievement-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
