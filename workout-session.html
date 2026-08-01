@@ -17,44 +17,223 @@
 <body>
 
 
-<div class="workout-session">
+<div class="dashboard">
 
 
-<a href="workouts.html" class="btn">
-⬅ Back To Workouts
+
+
+
+<!-- SIDEBAR -->
+
+
+<aside class="sidebar">
+
+
+<h2>💪 NovaHub</h2>
+
+
+<nav>
+
+
+<a href="dashboard.html">
+🏠 Dashboard
 </a>
 
 
+<a href="workouts.html">
+🏋️ Workouts
+</a>
 
-<h1 id="workoutName">
-Workout
+
+<a href="progress.html">
+📈 Progress
+</a>
+
+
+<a href="profile.html">
+👤 Profile
+</a>
+
+
+</nav>
+
+
+
+<button onclick="logout()">
+
+🚪 Logout
+
+</button>
+
+
+
+</aside>
+
+
+
+
+
+
+
+
+<!-- WORKOUT CONTENT -->
+
+
+<main class="content">
+
+
+
+<h1>
+🔥 Workout Session
 </h1>
 
 
 
-<div class="session-card">
 
 
-<img id="workoutGif"
+
+<section class="card exercise-box">
+
+
+
+<img 
+id="exerciseGif"
 src=""
-alt="Workout Animation">
+alt="Exercise demonstration"
+>
 
 
 
-<h2 id="difficulty">
-Difficulty
+<h2 id="exerciseName">
+
+Loading...
+
 </h2>
 
 
-<h2 id="reward">
-⭐ +10 XP
+
+<p>
+
+🎯 Target:
+<span id="muscles">
+</span>
+
+</p>
+
+
+
+<p>
+
+⭐ Reward:
+<span id="reward">
+</span>
+
+</p>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="card">
+
+
+
+<h2>
+📖 How To Do It
 </h2>
 
 
+<ol id="instructions">
 
-<div id="timer">
+<li>
+Loading instructions...
+</li>
+
+
+</ol>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="card">
+
+
+
+<h2>
+⚠️ Avoid These Mistakes
+</h2>
+
+
+<ul id="mistakes">
+
+<li>
+Loading...
+</li>
+
+</ul>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="card">
+
+
+
+<h2>
+🎯 Recommended
+
+</h2>
+
+
+<p id="sets">
+
+Loading...
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="card timer-box">
+
+
+
+<h2 id="timer">
+
 00:00
-</div>
+
+</h2>
+
 
 
 
@@ -62,25 +241,37 @@ Difficulty
 
 
 <button onclick="startWorkout()">
+
 ▶ Start
+
 </button>
+
 
 
 <button onclick="pauseWorkout()">
+
 ⏸ Pause
+
 </button>
+
 
 
 <button onclick="stopWorkout()">
+
 ⏹ Stop
+
 </button>
+
 
 
 </div>
 
 
 
-<button class="complete-btn"
+
+
+<button 
+class="complete-btn"
 onclick="completeWorkout()">
 
 🏆 Complete Workout
@@ -89,15 +280,28 @@ onclick="completeWorkout()">
 
 
 
+</section>
+
+
+
+
+
+
+
+</main>
+
+
+
 </div>
 
 
-</div>
 
 
 
 
 <script src="workout-session.js"></script>
+
+<script src="sidebar.js"></script>
 
 
 </body>
