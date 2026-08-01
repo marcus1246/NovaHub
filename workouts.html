@@ -17,14 +17,63 @@
 <body>
 
 
-<div class="workout-page">
+<div class="dashboard">
 
 
 
-<a href="dashboard.html" class="btn">
-⬅ Back Dashboard
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+
+<h2>💪 NovaHub</h2>
+
+
+<nav>
+
+
+<a href="dashboard.html">
+🏠 Dashboard
 </a>
 
+
+<a href="workouts.html">
+🏋️ Workouts
+</a>
+
+
+<a href="progress.html">
+📈 Progress
+</a>
+
+
+<a href="profile.html">
+👤 Profile
+</a>
+
+
+</nav>
+
+
+<button onclick="logout()">
+
+🚪 Logout
+
+</button>
+
+
+</aside>
+
+
+
+
+
+
+
+<!-- WORKOUT CONTENT -->
+
+
+<main class="content">
 
 
 
@@ -34,47 +83,146 @@
 
 
 <p>
-Choose your workout and start training.
+Choose a workout and start earning XP.
 </p>
 
 
 
 
 
-<!-- ================= MEN ================= -->
+
+
+<!-- SEARCH -->
+
+<div class="card">
+
 
 <h2>
-💪 Men's Exercises
+🔎 Search Workout
+</h2>
+
+
+<input 
+type="text"
+id="searchWorkout"
+placeholder="Search exercises..."
+>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- FILTERS -->
+
+
+<div class="card">
+
+
+<h2>
+🎯 Difficulty
 </h2>
 
 
 
-<div class="workout-grid">
+<button onclick="filterWorkout('all')">
+
+All
+
+</button>
 
 
 
-<div class="workout-card">
+<button onclick="filterWorkout('Beginner')">
 
-<img src="https://media.giphy.com/media/zcMcG2D8Z4qT6/giphy.gif">
+Beginner
+
+</button>
+
+
+
+<button onclick="filterWorkout('Intermediate')">
+
+Intermediate
+
+</button>
+
+
+
+<button onclick="filterWorkout('Advanced')">
+
+Advanced
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- WORKOUT GRID -->
+
+
+<div 
+class="workout-grid"
+id="workoutContainer">
+
+
+
+
+
+<!-- PUSH UPS -->
+
+<div class="workout-card"
+data-level="Beginner">
+
+
+<img 
+src="https://media.giphy.com/media/zcMcG2D8Z4qT6/giphy.gif"
+>
+
+
 
 <h3>
 Push Ups
 </h3>
 
+
+<p>
+💪 Upper Body
+</p>
+
+
 <p>
 🟢 Beginner
 </p>
+
 
 <p>
 ⭐ +10 XP
 </p>
 
-<a href="workout-session.html?workout=pushups"
-class="btn">
+
+<a 
+class="btn"
+href="workout-session.html?workout=pushups">
 
 Start Workout
 
 </a>
+
 
 </div>
 
@@ -84,28 +232,48 @@ Start Workout
 
 
 
-<div class="workout-card">
 
-<img src="https://media.giphy.com/media/aclHk1t8aYq3C/giphy.gif">
+
+<!-- SQUATS -->
+
+
+<div class="workout-card"
+data-level="Beginner">
+
+
+<img
+src="https://media.giphy.com/media/aclHk1t8aYq3C/giphy.gif"
+>
+
 
 <h3>
 Squats
 </h3>
 
+
+<p>
+🦵 Legs
+</p>
+
+
 <p>
 🟢 Beginner
 </p>
+
 
 <p>
 ⭐ +10 XP
 </p>
 
-<a href="workout-session.html?workout=squats"
-class="btn">
+
+<a 
+class="btn"
+href="workout-session.html?workout=squats">
 
 Start Workout
 
 </a>
+
 
 </div>
 
@@ -115,33 +283,48 @@ Start Workout
 
 
 
-<div class="workout-card">
 
-<img src="https://media.giphy.com/media/5cZ8Rr6rXcL0c/giphy.gif">
+
+<!-- PULL UPS -->
+
+
+<div class="workout-card"
+data-level="Advanced">
+
+
+<img
+src="https://media.giphy.com/media/5cZ8Rr6rXcL0c/giphy.gif"
+>
+
 
 <h3>
 Pull Ups
 </h3>
 
+
+<p>
+💪 Back
+</p>
+
+
 <p>
 🔴 Advanced
 </p>
+
 
 <p>
 ⭐ +30 XP
 </p>
 
-<a href="workout-session.html?workout=pullups"
-class="btn">
+
+<a 
+class="btn"
+href="workout-session.html?workout=pullups">
 
 Start Workout
 
 </a>
 
-</div>
-
-
-
 
 </div>
 
@@ -153,107 +336,46 @@ Start Workout
 
 
 
-<!-- ================= WOMEN ================= -->
+<!-- LUNGES -->
 
 
-<h2>
-🧘 Women's Exercises
-</h2>
+<div class="workout-card"
+data-level="Intermediate">
 
 
+<img
+src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
+>
 
-<div class="workout-grid">
-
-
-
-<div class="workout-card">
-
-<img src="https://media.giphy.com/media/3o7TKyPpWvFrpwUA5i/giphy.gif">
-
-<h3>
-Glute Bridge
-</h3>
-
-<p>
-🟢 Beginner
-</p>
-
-<p>
-⭐ +10 XP
-</p>
-
-<a href="workout-session.html?workout=glute"
-class="btn">
-
-Start Workout
-
-</a>
-
-</div>
-
-
-
-
-
-
-
-<div class="workout-card">
-
-<img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
 
 <h3>
 Lunges
 </h3>
 
+
+<p>
+🦵 Legs
+</p>
+
+
 <p>
 🟡 Intermediate
 </p>
+
 
 <p>
 ⭐ +20 XP
 </p>
 
-<a href="workout-session.html?workout=lunges"
-class="btn">
+
+<a 
+class="btn"
+href="workout-session.html?workout=lunges">
 
 Start Workout
 
 </a>
 
-</div>
-
-
-
-
-
-
-
-<div class="workout-card">
-
-<img src="https://media.giphy.com/media/3o6Zt6D8d8j8Kk3JfO/giphy.gif">
-
-<h3>
-Yoga Stretch
-</h3>
-
-<p>
-🟢 Beginner
-</p>
-
-<p>
-⭐ +10 XP
-</p>
-
-<a href="workout-session.html?workout=yoga"
-class="btn">
-
-Start Workout
-
-</a>
-
-</div>
-
-
 
 </div>
 
@@ -265,41 +387,46 @@ Start Workout
 
 
 
-<!-- ================= BOTH ================= -->
+<!-- BURPEES -->
 
 
-<h2>
-🔥 Everyone
-</h2>
+<div class="workout-card"
+data-level="Advanced">
 
 
+<img
+src="https://media.giphy.com/media/26BRqR8g6J8K9d6rK/giphy.gif"
+>
 
-<div class="workout-grid">
-
-
-
-<div class="workout-card">
-
-<img src="https://media.giphy.com/media/26BRqR8g6J8K9d6rK/giphy.gif">
 
 <h3>
 Burpees
 </h3>
 
+
+<p>
+🔥 Full Body
+</p>
+
+
 <p>
 🔴 Advanced
 </p>
+
 
 <p>
 ⭐ +30 XP
 </p>
 
-<a href="workout-session.html?workout=burpees"
-class="btn">
+
+<a 
+class="btn"
+href="workout-session.html?workout=burpees">
 
 Start Workout
 
 </a>
+
 
 </div>
 
@@ -309,64 +436,48 @@ Start Workout
 
 
 
-<div class="workout-card">
 
-<img src="https://media.giphy.com/media/3o7TKTDn976rzVgky4/giphy.gif">
+
+<!-- JUMPING JACKS -->
+
+
+<div class="workout-card"
+data-level="Beginner">
+
+
+<img
+src="https://media.giphy.com/media/3o7TKTDn976rzVgky4/giphy.gif"
+>
+
 
 <h3>
 Jumping Jacks
 </h3>
 
+
+<p>
+🔥 Cardio
+</p>
+
+
 <p>
 🟢 Beginner
 </p>
+
 
 <p>
 ⭐ +10 XP
 </p>
 
-<a href="workout-session.html?workout=jumping"
-class="btn">
+
+<a 
+class="btn"
+href="workout-session.html?workout=jumping">
 
 Start Workout
 
 </a>
 
-</div>
-
-
-
-
-
-
-
-<div class="workout-card">
-
-<img src="https://media.giphy.com/media/1zi2SFsjUwzB0e9iO5/giphy.gif">
-
-<h3>
-Mountain Climbers
-</h3>
-
-<p>
-🟡 Intermediate
-</p>
-
-<p>
-⭐ +20 XP
-</p>
-
-<a href="workout-session.html?workout=mountain"
-class="btn">
-
-Start Workout
-
-</a>
-
-</div>
-
-
-
 
 </div>
 
@@ -375,6 +486,26 @@ Start Workout
 
 
 </div>
+
+
+
+
+
+
+</main>
+
+
+</div>
+
+
+
+
+
+
+
+<script src="workouts.js"></script>
+
+<script src="sidebar.js"></script>
 
 
 </body>
