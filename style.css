@@ -157,3 +157,51 @@ body {
     color:white;
 
 }
+.exercise-card button {
+
+    margin-top:15px;
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:#00ff88;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+
+}
+
+
+.exercise-card button:hover {
+
+    background:white;
+
+}
+
+
+
+.sticker {
+
+    font-size:50px;
+    margin-bottom:15px;
+
+}
+
+
+
+.completion {
+
+    margin-top:50px;
+    background:#222;
+    padding:30px;
+    border-radius:15px;
+
+}
+
+
+
+.completion-sticker {
+
+    font-size:80px;
+    margin:20px;
+
+}
