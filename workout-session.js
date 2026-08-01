@@ -1,58 +1,79 @@
-// =====================================
-// NOVAHUB WORKOUT SESSION JS
-// =====================================
+// =================================
+// NOVAHUB WORKOUT SESSION
+// =================================
 
 
-// TIMER
+// GET WORKOUT FROM URL
 
-let seconds = 0;
-
-let timer = null;
-
-let running = false;
-
-
-
-
-
-// GET WORKOUT
-
-let params =
+const params =
 new URLSearchParams(window.location.search);
 
 
-let workout =
-params.get("workout") || "Workout";
+const workout =
+params.get("workout") || "pushups";
 
 
 
 
+// WORKOUT DATA
 
-// XP VALUES
-
-let workoutXP = {
-
-
-pushups:10,
-
-squats:10,
-
-glute:10,
-
-yoga:10,
+const workouts = {
 
 
-lunges:20,
+pushups:{
+name:"Push Ups",
+difficulty:"🟢 Beginner",
+xp:10,
+gif:"https://media.giphy.com/media/zcMcG2D8Z4qT6/giphy.gif"
+},
 
-mountain:20,
+
+squats:{
+name:"Squats",
+difficulty:"🟢 Beginner",
+xp:10,
+gif:"https://media.giphy.com/media/aclHk1t8aYq3C/giphy.gif"
+},
 
 
-pullups:30,
+pullups:{
+name:"Pull Ups",
+difficulty:"🔴 Advanced",
+xp:30,
+gif:"https://media.giphy.com/media/5cZ8Rr6rXcL0c/giphy.gif"
+},
 
-burpees:30,
 
-jumping:10
+lunges:{
+name:"Lunges",
+difficulty:"🟡 Intermediate",
+xp:20,
+gif:"https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
+},
 
+
+burpees:{
+name:"Burpees",
+difficulty:"🔴 Advanced",
+xp:30,
+gif:"https://media.giphy.com/media/26BRqR8g6J8K9d6rK/giphy.gif"
+},
+
+
+jumping:{
+name:"Jumping Jacks",
+difficulty:"🟢 Beginner",
+xp:10,
+gif:"https://media.giphy.com/media/3o7TKTDn976rzVgky4/giphy.gif"
+},
+
+
+mountain:{
+name:"Mountain Climbers",
+difficulty:"🟡 Intermediate",
+xp:20,
+gif:"https://media.giphy.com/media/1zi2SFsjUwzB0e9iO5/giphy.gif"
+}
 
 };
 
@@ -60,16 +81,48 @@ jumping:10
 
 
 
-let earnedXP =
-workoutXP[workout] || 10;
+let currentWorkout =
+workouts[workout];
+
+
+
+if(currentWorkout){
+
+
+document.getElementById("workoutName").textContent =
+currentWorkout.name;
+
+
+document.getElementById("difficulty").textContent =
+currentWorkout.difficulty;
+
+
+document.getElementById("reward").textContent =
+"⭐ +" + currentWorkout.xp + " XP";
+
+
+document.getElementById("workoutGif").src =
+currentWorkout.gif;
+
+
+}
 
 
 
 
 
 
+// TIMER
 
-// TIMER START
+
+let seconds = 0;
+
+let timer;
+
+let running=false;
+
+
+
 
 function startWorkout(){
 
@@ -78,9 +131,7 @@ if(running)
 return;
 
 
-
 running=true;
-
 
 
 timer=setInterval(()=>{
@@ -89,26 +140,24 @@ timer=setInterval(()=>{
 seconds++;
 
 
-let min =
+let minutes =
 Math.floor(seconds/60);
 
 
-let sec =
+let secs =
 seconds%60;
 
 
 
 document.getElementById("timer").textContent =
 
-(min<10?"0":"")
-+
-min
+(minutes<10?"0":"")
++minutes
 +
 ":"
 +
-(sec<10?"0":"")
-+
-sec;
+(secs<10?"0":"")
++secs;
 
 
 
@@ -122,9 +171,6 @@ sec;
 
 
 
-
-
-// PAUSE
 
 function pauseWorkout(){
 
@@ -143,18 +189,16 @@ running=false;
 
 
 
-// STOP
-
 function stopWorkout(){
 
 
 clearInterval(timer);
 
 
-seconds=0;
-
-
 running=false;
+
+
+seconds=0;
 
 
 document.getElementById("timer").textContent="00:00";
@@ -168,35 +212,29 @@ document.getElementById("timer").textContent="00:00";
 
 
 
-// COMPLETE
+
+// COMPLETE WORKOUT
+
 
 function completeWorkout(){
 
 
-
 if(seconds < 10){
 
-
-alert("Complete some workout time first 💪");
-
+alert("Do the workout first 💪");
 
 return;
-
 
 }
 
 
 
 
-// TOTAL WORKOUTS
-
 
 let total =
 
 Number(localStorage.getItem("totalWorkouts"))
-||
-0;
-
+||0;
 
 
 total++;
@@ -212,20 +250,13 @@ total
 
 
 
-
-// XP
-
-
 let points =
 
 Number(localStorage.getItem("points"))
-||
-0;
+||0;
 
 
-
-points += earnedXP;
-
+points += currentWorkout.xp;
 
 
 localStorage.setItem(
@@ -238,94 +269,14 @@ points
 
 
 
-
-
-// DAILY GOAL
+let today =
+new Date().toDateString();
 
 
 localStorage.setItem(
-
 "dailyGoalCompleted",
-
-new Date().toDateString()
-
+today
 );
-
-
-
-
-
-
-
-
-// WEEKLY CHART
-
-
-let weekly =
-
-JSON.parse(
-localStorage.getItem("weeklyWorkouts")
-)
-
-||
-
-[0,0,0,0,0,0,0];
-
-
-
-
-let day =
-new Date().getDay();
-
-
-
-let index =
-day === 0 ? 6 : day-1;
-
-
-
-weekly[index]++;
-
-
-
-localStorage.setItem(
-
-"weeklyWorkouts",
-
-JSON.stringify(weekly)
-
-);
-
-
-
-
-
-
-
-
-// STREAK
-
-
-let streak =
-
-Number(localStorage.getItem("streak"))
-||
-0;
-
-
-
-streak++;
-
-
-
-localStorage.setItem(
-
-"streak",
-
-streak
-
-);
-
 
 
 
@@ -334,10 +285,9 @@ streak
 
 alert(
 
-"Workout Complete! 🔥\n+"
-
+"Workout Completed! 🔥\n+"
 +
-earnedXP
+currentWorkout.xp
 +
 " XP"
 
@@ -345,9 +295,7 @@ earnedXP
 
 
 
-
-
-
 window.location.href="dashboard.html";
+
 
 }
