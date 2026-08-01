@@ -18,12 +18,10 @@ function startTimer(){
 
     running = true;
 
-
     hasWorkedOut = true;
 
 
     document.getElementById("completeBtn").disabled = false;
-
 
     document.getElementById("completeBtn").innerHTML =
     "Complete Workout 🏆";
@@ -38,7 +36,7 @@ function startTimer(){
 
         let minutes = Math.floor(seconds / 60);
 
-        let remainingSeconds = seconds % 60;
+        let secs = seconds % 60;
 
 
 
@@ -48,7 +46,7 @@ function startTimer(){
         +
         ":"
         +
-        (remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds);
+        (secs < 10 ? "0" + secs : secs);
 
 
 
@@ -86,7 +84,6 @@ function stopTimer(){
 
     document.getElementById("timer").innerHTML="00:00";
 
-
 }
 
 
@@ -99,7 +96,7 @@ function completeWorkout(){
 
     if(!hasWorkedOut){
 
-        alert("Start your workout first! 💪");
+        alert("You need to start the workout first 💪");
 
         return;
 
@@ -107,13 +104,34 @@ function completeWorkout(){
 
 
 
-    alert("Workout completed! 🏆🔥");
+    let total = localStorage.getItem("totalWorkouts");
+
+
+
+    if(total === null){
+
+        total = 0;
+
+    }
+
+
+
+    total++;
+
 
 
     localStorage.setItem(
-        "lastWorkout",
-        "completed"
+        "totalWorkouts",
+        total
     );
+
+
+
+    alert("Workout Completed! 🏆🔥");
+
+
+
+    window.location.href="dashboard.html";
 
 
 }
