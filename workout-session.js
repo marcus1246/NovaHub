@@ -443,18 +443,17 @@ function completeWorkout(){
 
 
 
+  celebrate();
+
+setTimeout(function(){
+
     alert(
-
         "🏆 Workout Complete!\n\n+" +
-
         (workoutXP[workout] || 10) +
-
         " XP"
-
     );
-
-
 
     window.location.href="dashboard.html";
 
+},600);
 }
