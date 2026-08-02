@@ -295,3 +295,166 @@ setInterval(function(){
 
 // Initialize timer
 updateTimer();
+// =================================
+// NOVAHUB COMPLETE WORKOUT
+// PART 3
+// =================================
+
+
+// XP VALUES
+const workoutXP = {
+
+    pushups:10,
+    squats:10,
+    lunges:20,
+    pullups:30,
+    burpees:30,
+    jumping:10
+
+};
+
+
+
+
+function completeWorkout(){
+
+    // Must actually do the workout
+    if(seconds < 10){
+
+        alert("⏱ Complete at least 10 seconds before finishing!");
+
+        return;
+
+    }
+
+
+
+    // Stop timer
+    clearInterval(timer);
+
+    running = false;
+
+
+
+    // XP
+    let xp =
+    Number(localStorage.getItem("points")) || 0;
+
+    xp += workoutXP[workout] || 10;
+
+    localStorage.setItem("points", xp);
+
+
+
+
+    // Total workouts
+    let total =
+    Number(localStorage.getItem("totalWorkouts")) || 0;
+
+    total++;
+
+    localStorage.setItem("totalWorkouts", total);
+
+
+
+
+    // Daily goal
+    let daily =
+    Number(localStorage.getItem("dailyWorkouts")) || 0;
+
+    daily++;
+
+    localStorage.setItem("dailyWorkouts", daily);
+
+
+
+
+    // Workout History
+    let history =
+
+    JSON.parse(
+
+    localStorage.getItem("workoutHistory")
+
+    )
+
+    ||
+
+    [];
+
+
+
+    history.unshift({
+
+        workout: exercise.name,
+
+        xp: workoutXP[workout] || 10,
+
+        duration: getWorkoutDuration(),
+
+        date: new Date().toLocaleString()
+
+    });
+
+
+
+    // Keep only latest 20
+    history = history.slice(0,20);
+
+    localStorage.setItem(
+
+        "workoutHistory",
+
+        JSON.stringify(history)
+
+    );
+
+
+
+
+    // Weekly Activity
+    let weekly =
+
+    JSON.parse(
+
+    localStorage.getItem("weeklyWorkouts")
+
+    )
+
+    ||
+
+    [0,0,0,0,0,0,0];
+
+
+
+    let today = new Date().getDay();
+
+    let index = today === 0 ? 6 : today - 1;
+
+    weekly[index]++;
+
+    localStorage.setItem(
+
+        "weeklyWorkouts",
+
+        JSON.stringify(weekly)
+
+    );
+
+
+
+    alert(
+
+        "🏆 Workout Complete!\n\n+" +
+
+        (workoutXP[workout] || 10) +
+
+        " XP"
+
+    );
+
+
+
+    window.location.href="dashboard.html";
+
+}
