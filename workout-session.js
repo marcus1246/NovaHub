@@ -457,3 +457,186 @@ setTimeout(function(){
 
 },600);
 }
+// =================================
+// NOVAHUB STREAKS & ACHIEVEMENTS
+// PART 4
+// =================================
+
+
+// DAILY STREAK
+
+let today = new Date().toDateString();
+
+let lastWorkout =
+localStorage.getItem("lastWorkoutDate");
+
+let streak =
+Number(localStorage.getItem("streak")) || 0;
+
+
+if(lastWorkout !== today){
+
+    if(lastWorkout){
+
+        let last =
+        new Date(lastWorkout);
+
+        let now =
+        new Date(today);
+
+        let difference =
+        Math.floor(
+
+        (now-last)/(1000*60*60*24)
+
+        );
+
+
+        if(difference===1){
+
+            streak++;
+
+        }
+
+        else if(difference>1){
+
+            streak=1;
+
+        }
+
+    }
+
+    else{
+
+        streak=1;
+
+    }
+
+}
+
+
+localStorage.setItem(
+"streak",
+streak
+);
+
+localStorage.setItem(
+"lastWorkoutDate",
+today
+);
+
+
+
+
+
+// ACHIEVEMENTS
+
+let achievements =
+
+JSON.parse(
+localStorage.getItem("achievements")
+)
+
+||
+
+[];
+
+
+
+function unlock(name){
+
+    if(!achievements.includes(name)){
+
+        achievements.push(name);
+
+    }
+
+}
+
+
+
+let workouts =
+Number(localStorage.getItem("totalWorkouts")) || 0;
+
+let xp =
+Number(localStorage.getItem("points")) || 0;
+
+
+
+if(workouts>=1){
+
+unlock("first");
+
+}
+
+
+
+if(workouts>=10){
+
+unlock("ten");
+
+}
+
+
+
+if(workouts>=50){
+
+unlock("fifty");
+
+}
+
+
+
+if(streak>=7){
+
+unlock("streak7");
+
+}
+
+
+
+if(xp>=500){
+
+unlock("xp500");
+
+}
+
+
+
+if(Math.floor(xp/100)+1>=10){
+
+unlock("level10");
+
+}
+
+
+
+localStorage.setItem(
+
+"achievements",
+
+JSON.stringify(achievements)
+
+);
+
+
+
+
+
+
+// SMALL CELEBRATION
+
+function celebrate(){
+
+    document.body.style.transition=".4s";
+
+    document.body.style.background="#00ff88";
+
+
+    setTimeout(function(){
+
+        document.body.style.background="";
+
+    },500);
+
+}
